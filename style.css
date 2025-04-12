@@ -49,8 +49,6 @@
     border-color: white;
   }
   
-  /* Keep the rest of your CSS below */
-  
   :root {
     --bg-light: #ffffff;
     --text-light: #1a1a1a;
@@ -69,6 +67,7 @@
     background-color: var(--bg-light);
     color: var(--text-light);
     transition: background 0.3s, color 0.3s;
+    text-align: center;
   }
   
   body.dark-mode {
@@ -100,7 +99,7 @@
     align-items: center;
     padding: 1rem 2rem;
     background: var(--primary);
-    color: white;
+    color: #1f2a24;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -115,7 +114,7 @@
   }
   
   nav a {
-    color: white;
+    color: #1e1e1e;
     text-decoration: none;
     font-weight: 500;
     transition: color var(--transition-fast);
@@ -166,7 +165,7 @@
   .hero {
     text-align: center;
     padding: 3rem 1rem;
-    background: linear-gradient(to right, #e0fbe6, #ffffff);
+    background: linear-gradient(to right, #193822, #121212);
     border-radius: var(--border-radius);
     box-shadow: none;
     position: relative;
