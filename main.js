@@ -3,10 +3,9 @@ const body = document.body;
 
 toggle.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
-  setTimeout(applyTilt, 300); // Reapply tilt on mode toggle
+  setTimeout(applyTilt, 300);
 });
 
-// Load projects
 fetch('data/projects.json')
   .then(res => res.json())
   .then(projects => {
@@ -26,14 +25,19 @@ fetch('data/projects.json')
       container.appendChild(item);
     });
 
-    applyTilt(); // after cards are loaded
+    applyTilt();
   })
   .catch(err => {
-    document.getElementById('project-list').textContent = 'Failed to load projects.';
     console.error('Error loading projects:', err);
+    const container = document.getElementById('project-list');
+    container.innerHTML = `
+      <div class="project">
+        <h3>Example Project</h3>
+        <p>This is a placeholder project shown because projects couldn't be loaded.</p>
+      </div>
+    `;
   });
 
-// Reveal on scroll
 function revealOnScroll() {
   document.querySelectorAll('section').forEach(section => {
     const rect = section.getBoundingClientRect();
@@ -45,10 +49,15 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Typewriter effect
+// Typewriter
 const heroText = "Creative Developer in Training";
 let i = 0;
 const h2 = document.querySelector(".hero h2");
+
+window.addEventListener('DOMContentLoaded', () => {
+  h2.textContent = '';
+  typeWriter();
+});
 
 function typeWriter() {
   if (i < heroText.length) {
@@ -57,10 +66,6 @@ function typeWriter() {
     setTimeout(typeWriter, 80);
   }
 }
-window.addEventListener('load', () => {
-  h2.textContent = '';
-  typeWriter();
-});
 
 // Hamburger nav
 const hamburger = document.getElementById('hamburger');
@@ -70,7 +75,7 @@ hamburger.addEventListener('click', () => {
   hamburger.setAttribute('aria-expanded', expanded);
 });
 
-// Tilt effect (applied per mode)
+// Tilt effect
 function applyTilt() {
   const isDark = body.classList.contains('dark-mode');
   VanillaTilt.init(document.querySelectorAll(".project"), {

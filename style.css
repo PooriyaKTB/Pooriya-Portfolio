@@ -16,6 +16,7 @@
   --transition: 0.3s ease;
   --max-width: 960px;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --glass-green: #1dbb61;
 }
 
 body {
@@ -341,4 +342,97 @@ body.dark-mode footer {
   .hero p {
     font-size: 1rem;
   }
+  #hamburger span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-light);
+    display: block;
+    transition: transform 0.3s;
+  }
+  
+  body.dark-mode #hamburger span {
+    background-color: white;
+  }
+  
+  /* --- بخش جدید Socials --- */
+  .socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .socials a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--accent);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .socials a:hover {
+    border-bottom-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  
+  /* --- انیمیشن reveal-on-scroll --- */
+  section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
+  .fancy-button {
+    display: inline-block;
+    background: var(--glass-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  body.dark-mode .fancy-button {
+    background: var(--glass-green);
+    color: #eafff2;
+    box-shadow: 0 4px 15px rgba(0, 255, 128, 0.3), 0 0 8px rgba(0, 255, 128, 0.2);
+  }
+  
+  .fancy-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--primary);
+  }
+  
+
+  .fancy-links a {
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    background: var(--glass-green);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* shadow for light mode */
+  }
+  
+  body.dark-mode .fancy-links a {
+    background: var(--glass-green);
+    color: #eafff2;
+    box-shadow:
+      0 4px 15px rgba(0, 255, 128, 0.3),
+      0 0 8px rgba(0, 255, 128, 0.2); /* subtle glow in dark */
+  }
+  
+  .fancy-links a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px var(--accent), 0 0 30px var(--primary);
+  }
