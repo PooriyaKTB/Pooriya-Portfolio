@@ -1,9 +1,9 @@
-// Dark mode toggle
 const toggle = document.getElementById('mode-toggle');
 const body = document.body;
 
 toggle.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
+  setTimeout(applyTilt, 300); // Reapply tilt on mode toggle
 });
 
 // Load projects
@@ -25,13 +25,15 @@ fetch('data/projects.json')
 
       container.appendChild(item);
     });
+
+    applyTilt(); // after cards are loaded
   })
   .catch(err => {
     document.getElementById('project-list').textContent = 'Failed to load projects.';
     console.error('Error loading projects:', err);
   });
 
-// Scroll animation
+// Reveal on scroll
 function revealOnScroll() {
   document.querySelectorAll('section').forEach(section => {
     const rect = section.getBoundingClientRect();
@@ -43,7 +45,7 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Hero typewriter effect
+// Typewriter effect
 const heroText = "Creative Developer in Training";
 let i = 0;
 const h2 = document.querySelector(".hero h2");
@@ -59,3 +61,22 @@ window.addEventListener('load', () => {
   h2.textContent = '';
   typeWriter();
 });
+
+// Hamburger nav
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  const expanded = navLinks.classList.toggle('show');
+  hamburger.setAttribute('aria-expanded', expanded);
+});
+
+// Tilt effect (applied per mode)
+function applyTilt() {
+  const isDark = body.classList.contains('dark-mode');
+  VanillaTilt.init(document.querySelectorAll(".project"), {
+    max: isDark ? 15 : 6,
+    speed: 400,
+    glare: true,
+    "max-glare": isDark ? 0.35 : 0.15
+  });
+}

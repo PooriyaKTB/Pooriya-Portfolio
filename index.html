@@ -8,19 +8,23 @@
   <meta name="author" content="Pooriya Ketabi" />
   <title>Pooriya Ketabi | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
-  <header>
+  <header id="header">
     <h1>Pooriya Ketabi</h1>
     <nav>
-      <ul>
+      <button id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-links">
         <li><a href="#main">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button id="mode-toggle"></button>
+      <button id="mode-toggle" aria-label="Toggle dark mode"></button>
     </nav>
   </header>
 
@@ -32,9 +36,7 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        A lifelong technology enthusiast with a passion for computers that began at an early age. I’m on a journey to sharpen my web development skills with a background in architecture, entrepreneurship, and technical support.
-      </p>
+      <p>A lifelong technology enthusiast with a passion for computers that began at an early age. I’m on a journey to sharpen my web development skills with a background in architecture, entrepreneurship, and technical support.</p>
     </section>
 
     <section id="projects">
@@ -44,12 +46,11 @@
 
     <section id="resume">
       <h2>Resume</h2>
-      <a href="assets/resume.pdf" target="_blank">Download PDF</a>
+      <a href="assets/resume.pdf" class="resume-download" target="_blank">Download Resume</a>
     </section>
-
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:me@pooriya.dev">me@pooriya.dev</a></p>
+      <p>Email: <a href="mailto:me@pooriya.dev" class="contact-email">me@pooriya.dev</a></p>
     </section>
   </main>
 
@@ -57,6 +58,6 @@
     <p>&copy; 2025 Pooriya Ketabi</p>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
