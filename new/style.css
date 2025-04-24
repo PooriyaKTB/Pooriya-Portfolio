@@ -331,6 +331,15 @@ footer {
   background-color: #eee;
   color: #1a1a1a;
   margin-top: 5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+footer img {
+  width: 45px;
+  height: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
 body.dark footer {
@@ -447,15 +456,24 @@ html {
   }
 
   select#lang-select {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
     padding: 0.1rem;
   }
 
   #mode-toggle {
     width: 100%;
-    font-size: 1rem;
+    font-size: 0.6rem;
     padding: 0.55rem 1.1rem;
     margin-top: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    margin: 0.1rem auto;
   }
 }
 
