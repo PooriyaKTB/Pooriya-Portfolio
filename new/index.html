@@ -6,8 +6,13 @@
   <meta name="description" content="Pooriya's professional portfolio" />
   <title>Pooriya | Portfolio</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"> -->
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -21,6 +26,7 @@
         <li><a href="#resume" data-i18n="nav.resume">Resume</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
         <li class="lang-switcher">
+          <label for="lang-select" class="visually-hidden">Language</label>
           <select id="lang-select">
             <option value="en">🇬🇧</option>
             <option value="de">🇩🇪</option>
@@ -56,7 +62,7 @@
 
     <section id="resume">
       <h2 data-i18n="resume.title">Resume</h2>
-      <iframe src="./assets/resume.pdf"></iframe>
+      <iframe src="./assets/resume.pdf" title="Pooriya's resume PDF"></iframe>
       <a href="./assets/resume.pdf" class="button" download data-i18n="resume.download">Download PDF</a>
     </section>
 
