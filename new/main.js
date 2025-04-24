@@ -14,7 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
   modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
     modeToggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+    localStorage.setItem("mode", body.classList.contains("dark") ? "dark" : "light");
   });
+
+  // Load saved theme
+  const savedMode = localStorage.getItem("mode");
+  if (savedMode === "dark") {
+    body.classList.add("dark");
+    modeToggle.textContent = "☀️";
+  }
 
   // Typewriter
   const tw = document.querySelector(".typewriter");
@@ -108,8 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>${repo.name}</h3>
         <p>${repo.descriptions[lang]}</p>
         <div class="project-links">
-          <a href="${repo.github}" class="project-btn github" target="_blank">GitHub</a>
-          ${repo.demo ? `<a href="${repo.demo}" class="project-btn live" target="_blank">Live Demo</a>` : ""}
+          <a href="${repo.github}" class="project-btn github" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          ${repo.demo ? `<a href="${repo.demo}" class="project-btn live" target="_blank">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+          </a>` : ""}
         </div>
       `;
       container.appendChild(card);
@@ -201,4 +213,21 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("lang", lang);
     applyLanguage(lang);
   });
+  const contactForm = document.querySelector(".contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = this;
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      }).then(res => {
+        if (res.ok) {
+          document.getElementById("form-success").classList.add("show");
+          form.reset();
+        }
+      });
+    });
+  }
 });

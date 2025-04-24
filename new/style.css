@@ -1,3 +1,5 @@
+/* Full CSS for Pooriya Portfolio (final with nav fix, projects, dark mode, form, success message) */
+
 :root {
   --primary: #00bfff;
   --accent: #ff3cac;
@@ -15,6 +17,8 @@
   --btn-font: 0.95rem;
   --btn-weight: 600;
   --btn-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  --success-bg: #d4f8e8;
+  --success-text: #0c5;
 }
 
 body {
@@ -33,9 +37,6 @@ body.dark {
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   backdrop-filter: blur(10px);
   background-color: var(--blur-glass);
   position: sticky;
@@ -43,6 +44,14 @@ header {
   z-index: 10;
   padding: 1rem 2rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -174,6 +183,9 @@ section {
   color: white;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: var(--btn-shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .project-btn.github {
@@ -208,6 +220,76 @@ body.dark footer {
   color: #aaa;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: #fff;
+  color: var(--text-dark);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background-color: #222;
+  color: var(--text-light);
+  border-color: #444;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
+
+.contact-form button[type="submit"] {
+  align-self: flex-start;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--btn-radius);
+  padding: var(--btn-padding);
+  font-weight: var(--btn-weight);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.contact-success {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  font-weight: bold;
+  border-radius: var(--btn-radius);
+  border: 1px solid #a7efc3;
+  display: none;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.contact-success.show {
+  display: block;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -229,6 +311,10 @@ body.dark footer {
   }
 
   header {
+    padding: 1rem;
+  }
+
+  nav {
     flex-direction: column;
     gap: 1rem;
   }
