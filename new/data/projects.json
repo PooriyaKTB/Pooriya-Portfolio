@@ -1,0 +1,23 @@
+[
+    {
+      "title": "Spell Checker",
+      "description": "A web app that highlights misspelled words using a Basic English dictionary. Users can add words temporarily and see results instantly.",
+      "link": "https://piscine-spell-checker.netlify.app/"
+    },
+    {
+      "title": "Days Calendar",
+      "description": "A lightweight calendar that helps visualize and manage day-based tasks, useful for tracking routines or learning schedules.",
+      "link": "https://piscine-days-calendar.netlify.app/"
+    },
+    {
+      "title": "Spaced Repetition Tracker",
+      "description": "A tool to help with spaced repetition-based learning. Built for learners who want to retain knowledge over time.",
+      "link": "https://piscine-spaced-repetition-tracker.netlify.app/"
+    },
+    {
+      "title": "TV Show Explorer",
+      "description": "An interactive app that fetches data from a TV show API to display episodes, descriptions, and search features.",
+      "link": "https://cyf-pooriyaktb-tv.netlify.app/"
+    }
+  ]
+  

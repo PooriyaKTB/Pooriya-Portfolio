@@ -1,49 +1,3 @@
-/* === RESET & BASE STYLES === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --bg-light: #ffffff;
-  --text-light: #1a1a1a;
-  --bg-dark: #0d0d0d;
-  --text-dark: #f5f5f5;
-  --primary: #22c55e;
-  --accent: #16a34a;
-  --radius: 1rem;
-  --transition: 0.3s ease;
-  --max-width: 960px;
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  --glass-green: #1dbb61;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-light);
-  transition: background var(--transition), color var(--transition);
-  line-height: 1.6;
-}
-
-body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-body.dark-mode .hero h2 {
-  background: linear-gradient(135deg, #bbf7d0, #22c55e, #15803d);
-  background-size: 300% 300%;
-  animation: shimmer-dark 6s ease-in-out infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-body.dark-mode header {
-  background-color: #15803d; /* darker shade of --primary */
-}
-
 #hamburger {
   display: none;
   flex-direction: column;
@@ -354,7 +308,7 @@ body.dark-mode footer {
     background-color: white;
   }
   
-  /* --- بخش جدید Socials --- */
+  /* --- Socials --- */
   .socials {
     margin-top: 1rem;
     display: flex;
@@ -375,7 +329,7 @@ body.dark-mode footer {
     transform: translateY(-2px);
   }
   
-  /* --- انیمیشن reveal-on-scroll --- */
+  /* --- reveal-on-scroll --- */
   section {
     opacity: 0;
     transform: translateY(30px);
@@ -436,7 +390,7 @@ body.dark-mode footer {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 15px var(--accent), 0 0 30px var(--primary);
   }
-  
+
   @media (max-width: 480px) {
     main {
       padding: 1rem;
@@ -491,3 +445,173 @@ body.dark-mode footer {
       padding: 0.5rem 1rem;
     }
   }
+  /* === RESET & BASE STYLES === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-light: #ffffff;
+  --text-light: #1a1a1a;
+  --bg-dark: #0d0d0d;
+  --text-dark: #f5f5f5;
+  --primary: #22c55e;
+  --accent: #16a34a;
+  --radius: 1rem;
+  --transition: 0.3s ease;
+  --max-width: 960px;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --glass-green: #1dbb61;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background var(--transition), color var(--transition);
+  line-height: 1.6;
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* === HEADER === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--primary);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+body.dark-mode header {
+  background-color: #15803d;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  flex: 1 1 100%;
+  text-align: center;
+}
+
+nav {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  align-self: center;
+}
+
+#hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  display: block;
+  transition: transform 0.3s;
+}
+
+body.dark-mode #hamburger span {
+  background-color: white;
+}
+
+#mode-toggle {
+  appearance: none;
+  width: 75px;
+  height: 35px;
+  border-radius: 9999px;
+  position: relative;
+  background-color: var(--primary);
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.25s ease;
+  margin: 0 auto;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  order: 3;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+    background-color: #15803d;
+    padding: 1rem;
+    border-radius: var(--radius);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    width: calc(50% - 1rem);
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.5rem;
+  }
+}
