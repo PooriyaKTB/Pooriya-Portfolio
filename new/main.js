@@ -24,21 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     modeToggle.textContent = "☀️";
   }
 
-  // // Typewriter
-  // const tw = document.querySelector(".typewriter");
-  // const text = tw.textContent;
-  // tw.textContent = "";
-  // let i = 0;
-  // const type = () => {
-  //   if (i < text.length) {
-  //     tw.textContent += text.charAt(i);
-  //     i++;
-  //     setTimeout(type, 50);
-  //   }
-  // };
-  // type();
-
-  // Static Pinned Projects
   const pinnedProjects = [
     {
       name: "Quote Generator",
@@ -319,3 +304,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => console.log('✅ Service Worker registered:', reg))
+      .catch(err => console.error('❌ SW registration failed:', err));
+  });
+}
