@@ -24,19 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
     modeToggle.textContent = "☀️";
   }
 
-  // Typewriter
-  const tw = document.querySelector(".typewriter");
-  const text = tw.textContent;
-  tw.textContent = "";
-  let i = 0;
-  const type = () => {
-    if (i < text.length) {
-      tw.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, 50);
-    }
-  };
-  type();
+  // // Typewriter
+  // const tw = document.querySelector(".typewriter");
+  // const text = tw.textContent;
+  // tw.textContent = "";
+  // let i = 0;
+  // const type = () => {
+  //   if (i < text.length) {
+  //     tw.textContent += text.charAt(i);
+  //     i++;
+  //     setTimeout(type, 50);
+  //   }
+  // };
+  // type();
 
   // Static Pinned Projects
   const pinnedProjects = [
@@ -140,11 +140,16 @@ document.addEventListener("DOMContentLoaded", () => {
       "hero.subtitle": "Crafting interactive digital experiences with style and precision.",
       "hero.cta": "See My Work",
       "about.title": "About Me",
-      "about.content": "I’ve always been fascinated by technology and creativity...",
+      "about.content": "Self-taught technologist with a passion for code.",
       "projects.title": "Projects",
       "resume.title": "Resume",
       "resume.download": "Download PDF",
-      "contact.title": "Contact"
+      "contact.title": "Contact",
+      "form.name": "Name",
+      "form.email": "Email",
+      "form.message": "Message",
+      "form.send": "Send",
+      "form.success": "Your message was sent successfully!"
     },
     de: {
       "nav.home": "Startseite",
@@ -156,11 +161,16 @@ document.addEventListener("DOMContentLoaded", () => {
       "hero.subtitle": "Interaktive digitale Erlebnisse mit Stil und Präzision gestalten.",
       "hero.cta": "Meine Arbeit ansehen",
       "about.title": "Über mich",
-      "about.content": "Ich war schon immer fasziniert von Technologie und Kreativität...",
+      "about.content": "Autodidaktischer Entwickler mit Leidenschaft für Code.",
       "projects.title": "Projekte",
       "resume.title": "Lebenslauf",
       "resume.download": "PDF herunterladen",
-      "contact.title": "Kontakt"
+      "contact.title": "Kontakt",
+      "form.name": "Name",
+      "form.email": "E-Mail",
+      "form.message": "Nachricht",
+      "form.send": "Senden",
+      "form.success": "Ihre Nachricht wurde erfolgreich gesendet!"
     },
     fa: {
       "nav.home": "خانه",
@@ -172,11 +182,16 @@ document.addEventListener("DOMContentLoaded", () => {
       "hero.subtitle": "خلق تجربه‌های دیجیتال تعاملی با دقت و زیبایی.",
       "hero.cta": "نمونه‌کارها",
       "about.title": "درباره من",
-      "about.content": "من همیشه به تکنولوژی و خلاقیت علاقه‌مند بودم...",
+      "about.content": "برنامه‌نویس خودآموخته با عشق به کدنویسی.",
       "projects.title": "پروژه‌ها",
       "resume.title": "رزومه",
       "resume.download": "دانلود PDF",
-      "contact.title": "تماس"
+      "contact.title": "تماس",
+      "form.name": "نام",
+      "form.email": "ایمیل",
+      "form.message": "پیام",
+      "form.send": "ارسال",
+      "form.success": "پیام شما با موفقیت ارسال شد!"
     },
     fr: {
       "nav.home": "Accueil",
@@ -188,31 +203,54 @@ document.addEventListener("DOMContentLoaded", () => {
       "hero.subtitle": "Créer des expériences numériques interactives avec style et précision.",
       "hero.cta": "Voir mes projets",
       "about.title": "À propos de moi",
-      "about.content": "J'ai toujours été passionné par la technologie et la créativité...",
+      "about.content": "Développeur autodidacte passionné de code.",
       "projects.title": "Projets",
       "resume.title": "CV",
       "resume.download": "Télécharger le PDF",
-      "contact.title": "Contact"
+      "contact.title": "Contact",
+      "form.name": "Nom",
+      "form.email": "Email",
+      "form.message": "Message",
+      "form.send": "Envoyer",
+      "form.success": "Votre message a été envoyé avec succès !"
     }
   };
 
   function applyLanguage(lang) {
-    i18nKeys.forEach((el) => {
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      if (el.classList.contains("typewriter")) return;
       const key = el.dataset.i18n;
-      if (i18n[lang] && i18n[lang][key]) {
-        el.textContent = i18n[lang][key];
-      }
+      if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
     });
     renderProjects(lang);
+
+    // Apply typewriter after i18n content load
+    setTimeout(() => {
+      const tw = document.querySelector(".typewriter");
+      const typeText = i18n[lang]["hero.title"];
+      tw.textContent = "";
+      let i = 0;
+      function type() {
+        if (i < typeText.length) {
+          tw.textContent += typeText.charAt(i);
+          i++;
+          setTimeout(type, 40);
+        }
+      }
+      type();
+    }, 200);
   }
 
-  applyLanguage(currentLang);
+  const lang = localStorage.getItem("lang") || "en";
+  langSelect.value = lang;
+  applyLanguage(lang);
 
   langSelect.addEventListener("change", (e) => {
-    const lang = e.target.value;
-    localStorage.setItem("lang", lang);
-    applyLanguage(lang);
+    const newLang = e.target.value;
+    localStorage.setItem("lang", newLang);
+    applyLanguage(newLang);
   });
+
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
@@ -230,4 +268,54 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  // ScrollReveal animations
+  ScrollReveal().reveal('#hero', {
+    origin: 'top',
+    distance: '80px',
+    duration: 1000,
+    delay: 100
+  });
+  ScrollReveal().reveal('#about', {
+    origin: 'left',
+    distance: '50px',
+    duration: 1000,
+    delay: 200
+  });
+  ScrollReveal().reveal('#projects', {
+    origin: 'bottom',
+    distance: '60px',
+    duration: 1000,
+    delay: 300
+  });
+  ScrollReveal().reveal('#resume', {
+    origin: 'right',
+    distance: '50px',
+    duration: 1000,
+    delay: 400
+  });
+  ScrollReveal().reveal('#contact', {
+    origin: 'bottom',
+    distance: '50px',
+    duration: 1000,
+    delay: 500
+  });
+  ScrollReveal().reveal('.card', {
+    origin: 'bottom',
+    distance: '30px',
+    duration: 800,
+    interval: 150
+  });
+  ScrollReveal().reveal('.cta-button', {
+    origin: 'top',
+    distance: '20px',
+    duration: 800,
+    delay: 600
+  });
+  ScrollReveal().reveal('.contact-form', {
+    origin: 'bottom',
+    distance: '40px',
+    duration: 1000,
+    delay: 600
+  });
 });
+
