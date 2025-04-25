@@ -402,6 +402,9 @@ body.dark .contact-form textarea {
 }
 
 .contact-success {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
   margin-top: 1.5rem;
   padding: 1rem 1.25rem;
   background-color: var(--success-bg);
@@ -409,12 +412,11 @@ body.dark .contact-form textarea {
   font-weight: bold;
   border-radius: var(--btn-radius);
   border: 1px solid #a7efc3;
-  display: none;
-  animation: fadeIn 0.8s ease-in-out;
 }
 
 .contact-success.show {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 html {

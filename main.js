@@ -247,8 +247,13 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { Accept: "application/json" }
       }).then(res => {
         if (res.ok) {
-          document.getElementById("form-success").classList.add("show");
+          const successMsg = document.getElementById("form-success");
+          successMsg.classList.add("show");
           form.reset();
+        
+          setTimeout(() => {
+            successMsg.classList.remove("show");
+          }, 5000); 
         }
       });
     });
