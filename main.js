@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load saved theme
   const savedMode = localStorage.getItem("mode");
-  if (savedMode === "dark") {
-    body.classList.add("dark");
-    modeToggle.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  if (savedMode === "light") {
+    body.classList.remove("dark");
+    modeToggle.innerHTML = `<i class="fa-solid fa-moon"></i>`;
   }
 
   const pinnedProjects = [
