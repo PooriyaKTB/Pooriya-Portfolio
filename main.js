@@ -2,36 +2,30 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("mode-toggle");
-  const langSelect = document.getElementById("lang-select");
   const body = document.body;
   const container = document.querySelector(".projects-container");
-
-  const getLang = () => localStorage.getItem("lang") || "en";
-  langSelect.value = getLang();
-  const currentLang = getLang();
 
   // Mode toggle
   modeToggle.addEventListener("click", () => {
     body.classList.toggle("dark");
-    modeToggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
-    localStorage.setItem(
-      "mode",
-      body.classList.contains("dark") ? "dark" : "light"
-    );
+    const isDarkMode = body.classList.contains("dark");
+    modeToggle.innerHTML = isDarkMode
+      ? `<i class="fa-solid fa-sun"></i>`
+      : `<i class="fa-solid fa-moon"></i>`;
+    localStorage.setItem("mode", isDarkMode ? "dark" : "light");
   });
 
   // Load saved theme
   const savedMode = localStorage.getItem("mode");
   if (savedMode === "dark") {
     body.classList.add("dark");
-    modeToggle.textContent = "☀️";
+    modeToggle.innerHTML = `<i class="fa-solid fa-sun"></i>`;
   }
 
   const pinnedProjects = [
     {
       name: "Mentoro Quiz app",
-      stack:
-        "JavaScript, React, TailwindCSS, Node.js, Express, WebSockets, PostgreSQL, Docker",
+      technologies: ["react", "tailwindcss", "nodejs", "postgresql", "docker"],
       descriptions: {
         en: "A full-stack web application for interactive, real-time learning. Mentors host live quizzes, and students join to submit answers instantly.",
         de: "Eine Full-Stack-Webanwendung für interaktives Echtzeit-Lernen. Mentoren veranstalten Live-Quizze, und Studenten nehmen teil, um sofort Antworten abzugeben.",
@@ -43,12 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "PiTranslate app",
-      stack:
-        "HTML, CSS, JavaScript, Node.js, Express, Firebase, OpenAI API, REST APIs",
+      technologies: [
+        "javascript",
+        "nodejs",
+        "express",
+        "firebase",
+        "html5",
+        "css3",
+      ],
       descriptions: {
         en: "An AI-powered language learning companion to translate, learn idioms, and practise intelligently with spaced repetition.",
         de: "Ein KI-gestützter Sprachlernbegleiter zum Übersetzen, Erlernen von Redewendungen und intelligentem Üben mit Spaced Repetition.",
-        fr: "Un compagnon d'apprentissage des langues alimenté par l'IA pour traduire, apprendre des idiomes et pratiquer intelligemment avec la répétition espacée.",
+        fr: "Un compagnon d'apprentissage des langues alimenté par l'IA pour traduire, apprendre des idioms et pratiquer intelligemment avec la répétition espacée.",
         fa: "یک همراه هوشمند یادگیری زبان برای ترجمه، یادگیری اصطلاحات و تمرین هوشمند با استفاده از تکرار فاصله‌دار.",
       },
       github: "https://github.com/PooriyaKTB/PiTranslate",
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "Quote Generator",
-      stack: "HTML, CSS, JavaScript",
+      technologies: ["javascript", "html5", "css3"],
       descriptions: {
         en: "A simple app that displays random quotes. Built with HTML, CSS, JS.",
         de: "Eine einfache App, die zufällige Zitate anzeigt. Erstellt mit HTML, CSS, JS.",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "Spell Checker",
-      stack: "HTML, CSS, JavaScript",
+      technologies: ["javascript", "html5", "css3"],
       descriptions: {
         en: "Spell checking app with highlighting and dictionary expansion.",
         de: "Rechtschreibprüfung mit Hervorhebung und Wörterbucherweiterung.",
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "Days Calendar",
-      stack: "HTML, CSS, JavaScript",
+      technologies: ["javascript", "html5", "css3"],
       descriptions: {
         en: "Interactive calendar showing meaningful day differences.",
         de: "Interaktiver Kalender zur Anzeige bedeutungsvoller Tagesunterschiede.",
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "Spaced Repetition Tracker",
-      stack: "HTML, CSS, JavaScript",
+      technologies: ["javascript", "html5", "css3"],
       descriptions: {
         en: "Visual tracker for spaced repetition learning cycles.",
         de: "Visueller Tracker für Wiederholungslernrhythmen.",
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "TV Show",
-      stack: "HTML, CSS, JavaScript, TVMaze API",
+      technologies: ["javascript", "html5", "css3"],
       descriptions: {
         en: "TV show search app using TVMaze API. Modern UI and filters included.",
         de: "TV-Show-Such-App mit TVMaze API. Modernes UI und Filter enthalten.",
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "HomeTown",
-      stack: "HTML, CSS",
+      technologies: ["html5", "css3"],
       descriptions: {
         en: "My very first project — a personal page built in early HTML/CSS days.",
         de: "Mein allererstes Projekt – eine persönliche Seite aus den frühen HTML/CSS-Tagen.",
@@ -128,26 +128,40 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  function renderProjects(lang) {
+  function renderProjects(lang = "en") {
     container.innerHTML = "";
     pinnedProjects.forEach((repo) => {
       const card = document.createElement("div");
-      card.className = "card";
+      card.className = "card project-card"; // Add a specific class for project cards
+
+      const techIcons = repo.technologies
+        .map(
+          (tech) =>
+            `<i class="devicon-${tech}-plain colored" title="${tech}"></i>`
+        )
+        .join("");
+
       card.innerHTML = `
+        <div class="project-tech-stack">
+          ${techIcons}
+        </div>
+        <div class="project-content">
         <h3>${repo.name}</h3>
-        <p class="project-stack">${repo.stack}</p>
-        <p>${repo.descriptions[lang]}</p>
+          <p>${repo.descriptions[lang] || repo.descriptions["en"]}</p>
         <div class="project-links">
-          <a href="${repo.github}" class="project-btn github" target="_blank">
+            <a href="${
+              repo.github
+            }" class="project-link github" target="_blank">
             <i class="fa-brands fa-github"></i> GitHub
           </a>
-          ${
-            repo.demo
-              ? `<a href="${repo.demo}" class="project-btn live" target="_blank">
+            ${
+              repo.demo
+                ? `<a href="${repo.demo}" class="project-link live" target="_blank">
             <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
           </a>`
-              : ""
-          }
+                : ""
+            }
+          </div>
         </div>
       `;
       container.appendChild(card);
@@ -162,9 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.projects": "Projects",
       "nav.resume": "Resume",
       "nav.contact": "Contact",
-      "hero.title": "Hi, I'm Pooriya | Full-Stack Software Developer.",
-      "hero.subtitle":
-        "Solving complex problems by delivering clear and effective software solutions.",
+      "hero.title": "Hi, I'm Pooriya | Full-Stack Software Engineer.",
+      "hero.subtitle": "Bridging ideas and reality with clean, scalable code.",
       "hero.cta": "See My Work",
       "about.title": "About Me",
       "about.content":
@@ -186,9 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.projects": "Projekte",
       "nav.resume": "Lebenslauf",
       "nav.contact": "Kontakt",
-      "hero.title": "Hallo, ich bin Pooriya | Full-Stack-Entwickler.",
+      "hero.title": "Hallo, ich bin Pooriya | Full-Stack Software Engineer.",
       "hero.subtitle":
-        "Komplexe Herausforderungen in durchdachte Softwarelösungen verwandeln.",
+        "Ideen und Realität mit sauberem, skalierbarem Code verbinden.",
       "hero.cta": "Meine Arbeit ansehen",
       "about.title": "Über mich",
       "about.content":
@@ -210,9 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.projects": "پروژه‌ها",
       "nav.resume": "رزومه",
       "nav.contact": "تماس",
-      "hero.title": "سلام، من پوریاهستم | توسعه‌دهنده فول‌استک نرم‌افزار.",
-      "hero.subtitle":
-        "حل مسائل پیچیده با ارائه راهکارهای نرم‌افزاری شفاف و مؤثر.",
+      "hero.title": "سلام، من پوریا هستم | مهندس نرم‌افزار فول‌استک.",
+      "hero.subtitle": "پیوند ایده‌ها و واقعیت با کد تمیز و مقیاس‌پذیر.",
       "hero.cta": "نمونه‌کارها",
       "about.title": "درباره من",
       "about.content":
@@ -234,10 +246,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "nav.projects": "Projets",
       "nav.resume": "CV",
       "nav.contact": "Contact",
-      "hero.title":
-        "Bonjour, je suis Pooriya | développeur logiciel full-stack.",
+      "hero.title": "Bonjour, je suis Pooriya | Ingénieur Logiciel Full-Stack.",
       "hero.subtitle":
-        "Transformer des défis complexes en solutions logicielles efficaces et élégantes.",
+        "Transformer les idées en réalité avec un code propre et scalable.",
       "hero.cta": "Voir mes projets",
       "about.title": "À propos de moi",
       "about.content":
@@ -255,18 +266,24 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
-  function applyLanguage(lang) {
+  function applyLanguage(lang = "en") {
+    // Default to English
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       if (el.classList.contains("typewriter")) return;
       const key = el.dataset.i18n;
-      if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
+      if (i18n[lang] && i18n[lang][key]) {
+        el.textContent = i18n[lang][key];
+      } else if (i18n["en"] && i18n["en"][key]) {
+        el.textContent = i18n["en"][key]; // Fallback to English
+      }
     });
     renderProjects(lang);
 
     // Apply typewriter after i18n content load
     setTimeout(() => {
       const tw = document.querySelector(".typewriter");
-      const typeText = i18n[lang]["hero.title"];
+      const typeText =
+        (i18n[lang] && i18n[lang]["hero.title"]) || i18n["en"]["hero.title"];
       tw.textContent = "";
       let i = 0;
       function type() {
@@ -280,15 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 200);
   }
 
-  const lang = localStorage.getItem("lang") || "en";
-  langSelect.value = lang;
-  applyLanguage(lang);
-
-  langSelect.addEventListener("change", (e) => {
-    const newLang = e.target.value;
-    localStorage.setItem("lang", newLang);
-    applyLanguage(newLang);
-  });
+  applyLanguage(); // Apply default language on load
 
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {
@@ -312,6 +321,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Calendly pop-up logic
+  const calendlyLink = document.getElementById("calendly-link");
+  if (calendlyLink) {
+    calendlyLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      Calendly.initPopupWidget({
+        url: "https://calendly.com/pooriya-ketabi/online-meeting",
+      });
+    });
+  }
+
   // ScrollReveal animations
   ScrollReveal().reveal("#hero", {
     origin: "top",

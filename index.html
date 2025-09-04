@@ -69,9 +69,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
 
     <!-- Favicon + Manifest -->
-    <link rel="icon" href="./icons/LOGO/logo1.png" type="image/png" />
+    <link rel="icon" href="icons/LOGO/logo1.png" type="image/png" />
     <link rel="manifest" href="./manifest.json" />
   </head>
 
@@ -79,7 +83,7 @@
     <header>
       <nav>
         <div class="logo">
-          <img src="./icons/LOGO/logo2.png" alt="Pooriya Ketabi Logo" />
+          <img src="icons/LOGO/logo2.png" alt="Pooriya Ketabi Logo" />
         </div>
         <ul class="nav-links">
           <li><a href="#hero" data-i18n="nav.home">Home</a></li>
@@ -87,17 +91,10 @@
           <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
           <li><a href="#resume" data-i18n="nav.resume">Resume</a></li>
           <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-          <li class="lang-switcher">
-            <label for="lang-select" class="visually-hidden">Language</label>
-            <select id="lang-select">
-              <option value="en">🇬🇧</option>
-              <option value="de">🇩🇪</option>
-              <option value="fr">🇫🇷</option>
-              <option value="fa">🇮🇷</option>
-            </select>
-          </li>
           <li>
-            <button id="mode-toggle">🌙</button>
+            <button id="mode-toggle" class="mode-toggle-btn">
+              <i class="fa-solid fa-moon"></i>
+            </button>
           </li>
         </ul>
       </nav>
@@ -124,42 +121,42 @@
 
       <section id="skills">
         <h2 data-i18n="skills.title">Technical Skills</h2>
-        <div class="skills-container">
-          <div class="skill-category">
+        <div class="skills-grid">
+          <div class="skill-category card">
             <h3>Languages & Frameworks</h3>
-            <p>JavaScript (ES6+), React, TailwindCSS, Node.js, Express.</p>
+            <div class="skill-icons">
+              <i
+                class="devicon-javascript-plain colored"
+                title="JavaScript"
+              ></i>
+              <i class="devicon-react-original colored" title="React"></i>
+              <i
+                class="devicon-tailwindcss-plain colored"
+                title="TailwindCSS"
+              ></i>
+              <i class="devicon-nodejs-plain colored" title="Node.js"></i>
+              <i class="devicon-express-original" title="Express"></i>
+            </div>
           </div>
-          <div class="skill-category">
-            <h3>Frontend</h3>
-            <p>
-              DOM manipulation, Responsive UI, Accessibility (Lighthouse 100).
-            </p>
-          </div>
-          <div class="skill-category">
-            <h3>Backend</h3>
-            <p>
-              REST APIs, Designing and Decomposing Software Systems, Working
-              with Legacy Code.
-            </p>
-          </div>
-          <div class="skill-category">
-            <h3>Databases</h3>
-            <p>PostgreSQL.</p>
-          </div>
-          <div class="skill-category">
-            <h3>Testing</h3>
-            <p>Jest (unit testing), TDD practices, Browser dev tools.</p>
-          </div>
-          <div class="skill-category">
+          <div class="skill-category card">
             <h3>Tools & Practices</h3>
-            <p>
-              Git, GitHub, Postman, Code Review, Shell Scripting and Pipelines,
-              and Unix Tools.
-            </p>
+            <div class="skill-icons">
+              <i class="devicon-git-plain colored" title="Git"></i>
+              <i class="devicon-github-original" title="GitHub"></i>
+              <i class="devicon-docker-plain colored" title="Docker"></i>
+              <i
+                class="devicon-postgresql-plain colored"
+                title="PostgreSQL"
+              ></i>
+              <i class="devicon-jest-plain colored" title="Jest"></i>
+            </div>
           </div>
-          <div class="skill-category">
-            <h3>Deployment</h3>
-            <p>GitHub Pages, Netlify, Coolify, Docker.</p>
+          <div class="skill-category card">
+            <h3>Core Concepts</h3>
+            <p>
+              REST APIs, Responsive UI, TDD, DOM Manipulation, Legacy Code
+              Refactoring, Accessibility.
+            </p>
           </div>
         </div>
       </section>
@@ -238,59 +235,86 @@
             <p><strong>BSc in Architecture</strong> - Azad University</p>
           </div>
         </div>
-        <a
-          href="./assets/POORIYA KETABI CV - 4.pdf"
-          class="button"
-          download
-          data-i18n="resume.download"
-          >Download PDF</a
-        >
+        <div class="resume-download-wrapper">
+          <a
+            href="./assets/POORIYA KETABI CV - 4.pdf"
+            class="cta-button"
+            download
+            data-i18n="resume.download"
+            >Download PDF</a
+          >
+        </div>
       </section>
 
       <section id="contact">
         <h2 data-i18n="contact.title">Contact</h2>
-        <p>Email: <a href="mailto:me@pooriya.dev">me@pooriya.dev</a></p>
-        <p>
-          LinkedIn:
-          <a href="https://www.linkedin.com/in/pooriya-ketabi" target="_blank"
-            >pooriya-ketabi</a
+        <div class="contact-container">
+          <div class="contact-info">
+            <a href="mailto:me@pooriya.dev" class="contact-link">
+              <i class="fa-solid fa-envelope"></i>
+              <span>me@pooriya.dev</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/pooriya-ketabi"
+              target="_blank"
+              class="contact-link"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/PooriyaKTB"
+              target="_blank"
+              class="contact-link"
+            >
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://calendly.com/pooriya-ketabi/online-meeting"
+              id="calendly-link"
+              class="contact-link"
+            >
+              <i class="fa-solid fa-calendar-days"></i>
+              <span>Book a Meeting</span>
+            </a>
+          </div>
+          <form
+            action="https://formspree.io/f/myzwyqlp"
+            method="POST"
+            class="contact-form"
           >
-        </p>
-        <p>
-          GitHub:
-          <a href="https://github.com/PooriyaKTB" target="_blank">PooriyaKTB</a>
-        </p>
+            <label for="name" data-i18n="form.name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              required
+            />
 
-        <form
-          action="https://formspree.io/f/myzwyqlp"
-          method="POST"
-          class="contact-form"
-        >
-          <label for="name" data-i18n="form.name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            autocomplete="name"
-            required
-          />
+            <label for="email" data-i18n="form.email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="_replyto"
+              autocomplete="email"
+              required
+            />
 
-          <label for="email" data-i18n="form.email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="_replyto"
-            autocomplete="email"
-            required
-          />
+            <label for="message" data-i18n="form.message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
 
-          <label for="message" data-i18n="form.message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-
-          <button type="submit" id="submit" data-i18n="form.send" name="submit">
-            Send
-          </button>
-        </form>
+            <button
+              type="submit"
+              id="submit"
+              data-i18n="form.send"
+              name="submit"
+            >
+              Send
+            </button>
+          </form>
+        </div>
 
         <div id="form-success" class="contact-success" data-i18n="form.success">
           Your message was sent successfully!
@@ -299,11 +323,22 @@
     </main>
 
     <footer>
-      <img src="./icons/LOGO/logo1.png" alt="Pooriya logo" />
+      <img src="icons/LOGO/logo1.png" alt="Pooriya logo" />
       <span>© 2025 Pooriya. All rights reserved.</span>
     </footer>
 
     <script src="main.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Calendly badge widget begin -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
+    <!-- Calendly badge widget end -->
   </body>
 </html>
