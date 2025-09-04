@@ -594,6 +594,28 @@ body.dark .contact-form textarea {
   box-shadow: 0 8px 25px rgba(0, 170, 255, 0.5);
 }
 
+.contact-error {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease, margin-top 0.3s ease;
+  color: #ff5277; /* Use accent color for error */
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 82, 119, 0.3);
+  background-color: rgba(255, 82, 119, 0.1);
+  padding: 0 1rem;
+  margin-top: 0;
+}
+
+.contact-error.show {
+  opacity: 1;
+  max-height: 100px; /* Arbitrary large value */
+  padding: 0.8rem 1rem;
+  margin-top: 1rem;
+}
+
 .contact-success {
   opacity: 0;
   visibility: hidden; /* Hidden by default */

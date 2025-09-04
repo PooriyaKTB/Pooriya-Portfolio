@@ -299,26 +299,92 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyLanguage(); // Apply default language on load
 
+  // AJAX Contact Form Submission
   const contactForm = document.querySelector(".contact-form");
+  const formSuccessMessage = document.getElementById("form-success");
+  const formErrorMessage = document.getElementById("form-error");
+
+  // Basic email validation regex
+  const isValidEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      const form = this;
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      }).then((res) => {
-        if (res.ok) {
-          const successMsg = document.getElementById("form-success");
-          successMsg.classList.add("show");
-          form.reset();
+      const form = e.target;
+      const formData = new FormData(form);
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
 
-          setTimeout(() => {
-            successMsg.classList.remove("show");
-          }, 5000);
-        }
-      });
+      // --- Client-side validation ---
+      const name = formData.get("name").trim();
+      const email = formData.get("_replyto").trim();
+      const message = formData.get("message").trim();
+
+      formErrorMessage.classList.remove("show"); // Hide previous errors
+
+      if (!name || !email || !message) {
+        formErrorMessage.textContent = "Please fill out all fields.";
+        formErrorMessage.classList.add("show");
+        return; // Stop the submission
+      }
+
+      if (!isValidEmail(email)) {
+        formErrorMessage.textContent = "Please enter a valid email address.";
+        formErrorMessage.classList.add("show");
+        return; // Stop the submission
+      }
+      // --- End of validation ---
+
+      // Disable button and show a sending state
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            formSuccessMessage.classList.add("show");
+            form.reset();
+            setTimeout(() => {
+              formSuccessMessage.classList.remove("show");
+            }, 5000); // Hide after 5 seconds
+          } else {
+            // Handle server errors from Formspree
+            response.json().then((data) => {
+              if (Object.hasOwn(data, "errors")) {
+                const errorMessages = data.errors
+                  .map((error) => error.message)
+                  .join(", ");
+                formErrorMessage.textContent = `Error: ${errorMessages}`;
+                formErrorMessage.classList.add("show");
+              } else {
+                formErrorMessage.textContent =
+                  "An unexpected error occurred. Please try again.";
+                formErrorMessage.classList.add("show");
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          // Handle network errors
+          formErrorMessage.textContent =
+            "A network error occurred. Please check your connection and try again.";
+          formErrorMessage.classList.add("show");
+          console.error("Form submission network error:", error);
+        })
+        .finally(() => {
+          // Re-enable the button and restore its original text
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        });
     });
   }
 
