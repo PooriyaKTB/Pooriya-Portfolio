@@ -4,7 +4,7 @@ const urlsToCache = [
   '/index.html',
   '/style.css',
   '/main.js',
-  './assets/resume.pdf',
+  './assets/POORIYA KETABI CV.pdf',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
