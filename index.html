@@ -1,346 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script>
-      if (window.location.hostname === "www.pooriya.dev") {
-        window.location.replace("https://pooriya.dev");
-      }
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0077cc" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="description"
-      content="Creative full-stack developer portfolio — projects, resume, and contact."
-    />
-    <link rel="canonical" href="https://pooriya.dev/" />
-    <title>Pooriya | Full-Stack Software Developer Portfolio</title>
+<head>
+<meta charset="UTF-8">
+<script>
+  if (window.location.hostname === "www.pooriya.dev") {
+    window.location.replace("https://pooriya.dev");
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#06060F">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Pooriya Ketabi — full-stack software engineer with senior-level business analysis and architecture leadership experience.">
+<link rel="canonical" href="https://pooriya.dev/">
+<title>Pooriya Ketabi — Full-Stack Engineer &amp; Technical Business Analyst</title>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pooriya.dev/" />
-    <meta
-      property="og:title"
-      content="Pooriya | Full-Stack Software Developer Portfolio"
-    />
-    <meta
-      property="og:description"
-      content="Creative full-stack developer building high-impact web experiences."
-    />
-    <meta
-      property="og:image"
-      content="https://pooriya.dev/assets/preview.png"
-    />
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pooriya.dev/">
+<meta property="og:title" content="Pooriya Ketabi — Full-Stack Engineer &amp; Technical Business Analyst">
+<meta property="og:description" content="Seven years leading architecture teams, a business analysis stretch, now full-stack software engineering — all three showing up in how I build.">
+<meta property="og:image" content="https://pooriya.dev/assets/preview.png">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Pooriya | Full-Stack Software Developer Portfolio"
-    />
-    <meta
-      name="twitter:description"
-      content="Creative full-stack developer building high-impact web experiences."
-    />
-    <meta
-      name="twitter:image"
-      content="https://pooriya.dev/assets/preview.png"
-    />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pooriya Ketabi — Full-Stack Engineer &amp; Technical Business Analyst">
+<meta name="twitter:description" content="Seven years leading architecture teams, a business analysis stretch, now full-stack software engineering — all three showing up in how I build.">
+<meta name="twitter:image" content="https://pooriya.dev/assets/preview.png">
 
-    <!-- Preconnect & Preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      href="style.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="style.css" /></noscript>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-    />
+<!-- Preconnect & Preload -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="style.css"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
-    <!-- Favicon + Manifest -->
-    <link rel="icon" href="icons/LOGO/logo1.png" type="image/png" />
-    <link rel="manifest" href="./manifest.json" />
-  </head>
+<!-- Favicon + Manifest -->
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" href="icons/LOGO/logo1.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="manifest" href="./manifest.json">
+</head>
+<body>
 
-  <body class="dark">
-    <header>
-      <nav>
-        <div class="logo">
-          <img src="icons/LOGO/logo2.png" alt="Pooriya Ketabi Logo" />
+<div class="mesh" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+  <div class="blob blob-d"></div>
+</div>
+<div class="noise" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="site-header">
+  <nav class="nav-pill glass">
+    <a href="#hero" class="mark" aria-label="Pooriya Ketabi — home">PK</a>
+    <div class="site-nav" id="siteNav">
+      <a href="#positioning">Positioning</a>
+      <a href="#approach">Approach</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#record">Track Record</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn header-dl" href="assets/Pooriya-Ketabi-CV.pdf" download>Download CV</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Pooriya Ketabi — Full-Stack Software Engineer</span>
+      <h1 class="gradient-text typewriter">I've run the room before I ever wrote the code.</h1>
+      <p class="hero-lede">Seven years as a senior architect. A recent stretch as a business analyst and tech consultant. Now full-stack software engineering. Most people bring one of these to a team. I bring all three — and they all show up in how I build.</p>
+      <div class="hero-actions">
+        <span class="btn-primary-wrap"><a href="#positioning" class="btn-primary">See how it fits together</a></span>
+        <a href="assets/Pooriya-Ketabi-CV.pdf" download class="btn">Download CV</a>
+      </div>
+      <div class="hero-badges">
+        <span class="badge badge--blue"><span class="dot"></span>Architecture &amp; Leadership</span>
+        <span class="badge badge--violet"><span class="dot"></span>Business Analysis &amp; Strategy</span>
+        <span class="badge badge--pink"><span class="dot"></span>Software Engineering</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section id="positioning" class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Positioning</span>
+        <h2>Three disciplines. One build process.</h2>
+        <p>Most portfolios show projects. This one shows why the same person who scoped the business case also wrote the code — and what that combination is actually good for on a team.</p>
+      </div>
+
+      <div class="track-grid reveal">
+        <div class="track-card spot-card glass track-card--blue">
+          <span class="years mono">2016 – 2023</span>
+          <h3>Architecture &amp; Leadership</h3>
+          <p>Led multi-disciplinary teams from a client's first sketch to the ribbon-cutting — coordinating stakeholders, timelines and trade-offs between cost, performance and sustainability. Mentored junior staff and made the calls when priorities conflicted.</p>
+          <div class="takeaway"><b>On a team:</b> comfortable owning ambiguity, making trade-off calls, and mentoring without hand-holding.</div>
         </div>
-        <ul class="nav-links">
-          <li><a href="#hero" data-i18n="nav.home">Home</a></li>
-          <li><a href="#about" data-i18n="nav.about">About</a></li>
-          <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-          <li><a href="#resume" data-i18n="nav.resume">Resume</a></li>
-          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-          <li>
-            <button id="mode-toggle" class="mode-toggle-btn">
-              <i class="fa-solid fa-sun"></i>
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        <div class="track-card spot-card glass track-card--violet">
+          <span class="years mono">2026</span>
+          <h3>Business Analysis &amp; Tech Consulting</h3>
+          <p>Co-designed the business model and Lean Canvas for an accessibility platform from scratch — interviews, competitor research, requirements — then co-pitched the strategic vision to senior judges at Google London.</p>
+          <div class="takeaway"><b>On a team:</b> can sit in a requirements meeting and leave with a real, buildable plan — not a backlog of guesses.</div>
+        </div>
+        <div class="track-card spot-card glass track-card--pink">
+          <span class="years mono">2024 – Present</span>
+          <h3>Software Engineering</h3>
+          <p>Built and shipped three full-stack products, solo and in Agile teams — real-time systems, AI integrations, and testing discipline baked in from day one, not bolted on at the end.</p>
+          <div class="takeaway"><b>On a team:</b> hands-on delivery that doesn't need someone else to translate the requirements first.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <main>
-      <section id="hero">
-        <h1 class="typewriter" data-i18n="hero.title">
-          Hi, I'm Pooriya | Full-Stack Software Developer.
-        </h1>
-        <p class="subtitle" data-i18n="hero.subtitle">
-          Solving complex problems by delivering clear and effective software
-          solutions.
-        </p>
-        <a href="#projects" class="cta-button" data-i18n="hero.cta"
-          >See My Work</a
-        >
-      </section>
+  <!-- APPROACH -->
+  <section id="approach" class="section section--alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Approach</span>
+        <h2>The sequence I don't skip</h2>
+        <p>Buildings and software tend to fail for the same reason: someone jumped straight to building. This is the sequence either way.</p>
+      </div>
 
-      <section id="about">
-        <h2 data-i18n="about.title">About Me</h2>
-        <p id="about-text" data-i18n="about.content">Loading...</p>
-      </section>
+      <div class="approach-stepper reveal" aria-hidden="true">
+        <span class="node mono">01</span>
+        <span class="node mono">02</span>
+        <span class="node mono">03</span>
+        <span class="node mono">04</span>
+      </div>
+      <div class="approach-row reveal">
+        <div class="approach-step glass">
+          <h3>Discover</h3>
+          <p>Understand who's using this and why, before drawing anything — user interviews, desk research, competitor analysis.</p>
+        </div>
+        <div class="approach-step glass">
+          <h3>Define</h3>
+          <p>Turn research into a scope someone can sign off on. This is where ambiguity has to end.</p>
+        </div>
+        <div class="approach-step glass">
+          <h3>Build</h3>
+          <p>Execute against real constraints — budget, timeline, legacy code. Clean, tested, built to hold up.</p>
+        </div>
+        <div class="approach-step glass">
+          <h3>Deliver</h3>
+          <p>Ship it, then defend it — to inspectors, code reviewers, or judges at Google London.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <section id="skills">
-        <h2 data-i18n="skills.title">Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category card">
-            <h3>Languages & Frameworks</h3>
-            <div class="skill-icons">
-              <i
-                class="devicon-javascript-plain colored"
-                title="JavaScript"
-              ></i>
-              <i class="devicon-react-original colored" title="React"></i>
-              <i
-                class="devicon-tailwindcss-plain colored"
-                title="TailwindCSS"
-              ></i>
-              <i class="devicon-nodejs-plain colored" title="Node.js"></i>
-              <i class="devicon-express-original" title="Express"></i>
+  <!-- CAPABILITIES -->
+  <section id="capabilities" class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Capabilities</span>
+        <h2>What each discipline actually contributes</h2>
+        <p>Not a flat skills list — grouped by where each capability comes from.</p>
+      </div>
+
+      <div class="cap-grid reveal">
+        <div class="cap-col cap-col--violet">
+          <span class="cap-head">Product &amp; Strategy</span>
+          <ul>
+            <li>Stakeholder interviews &amp; desk research</li>
+            <li>Competitor analysis</li>
+            <li>Lean Canvas &amp; business modelling</li>
+            <li>MVP scoping</li>
+            <li>Requirements translation</li>
+            <li>Executive &amp; stakeholder pitching</li>
+          </ul>
+        </div>
+        <div class="cap-col cap-col--pink">
+          <span class="cap-head">Engineering</span>
+          <ul>
+            <li>JavaScript, Java, Python</li>
+            <li>React, Tailwind CSS, Responsive UI</li>
+            <li>Node.js, Express, REST API, JWT, WebSocket</li>
+            <li>PostgreSQL, MongoDB, Schema Design</li>
+            <li>Jest, JUnit, AssertJ, TDD, API Mocking</li>
+            <li>Git, Docker, CI/CD</li>
+          </ul>
+        </div>
+        <div class="cap-col cap-col--blue">
+          <span class="cap-head">Leadership &amp; Delivery</span>
+          <ul>
+            <li>Multi-disciplinary team leadership</li>
+            <li>Mentoring junior team members</li>
+            <li>Budget &amp; trade-off management</li>
+            <li>Cross-functional Agile collaboration</li>
+            <li>Code review &amp; pair programming</li>
+            <li>Stakeholder communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="work" class="section section--alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected Work</span>
+        <h2>Case studies</h2>
+        <p>Each one draws on a different mix of the three disciplines above.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="case spot-card glass" style="--card-accent:var(--violet); --card-glow:var(--violet-glow);">
+          <div class="case-tags"><span class="tag tag--violet">Business Analysis</span><span class="tag tag--pink">Engineering</span></div>
+          <h3>ThisAbility – EquiVerse</h3>
+          <div class="case-grid">
+            <dl class="case-facts">
+              <div><dt>Context</dt><dd>Capgemini Tech4Positive Futures</dd></div>
+              <div><dt>Role</dt><dd>Research &amp; Sole Developer</dd></div>
+              <div><dt>Stack</dt><dd>JS, TfL API, GraphHopper API</dd></div>
+            </dl>
+            <div class="case-body">
+              <p>An accessibility-focused transport planning prototype. I ran the interviews, surveys and competitor research that defined the brief, co-designed the Lean Canvas, then built the interactive prototype myself — combining transport and navigation APIs to demonstrate confident, independent journey planning for people with disabilities.</p>
+              <p class="case-quote">Owned it end-to-end: from user interviews to the pitch at Google London.</p>
+              <div class="case-links">
+                <a class="case-link" href="https://github.com/PooriyaKTB/T4PF---ThisAbility" target="_blank" rel="noopener">GitHub →</a>
+                <a class="case-link" href="https://t4pf-equiverse-thisability.netlify.app/" target="_blank" rel="noopener">Website →</a>
+                <a class="case-link" href="https://t4pf-thisability-mvp.netlify.app/" target="_blank" rel="noopener">Live Demo →</a>
+              </div>
             </div>
           </div>
-          <div class="skill-category card">
-            <h3>Tools & Practices</h3>
-            <div class="skill-icons">
-              <i class="devicon-git-plain colored" title="Git"></i>
-              <i class="devicon-github-original" title="GitHub"></i>
-              <i class="devicon-docker-plain colored" title="Docker"></i>
-              <i
-                class="devicon-postgresql-plain colored"
-                title="PostgreSQL"
-              ></i>
-              <i class="devicon-jest-plain colored" title="Jest"></i>
+        </div>
+
+        <div class="case spot-card glass" style="--card-accent:var(--pink); --card-glow:var(--pink-glow);">
+          <div class="case-tags"><span class="tag tag--pink">Engineering</span><span class="tag tag--muted">Team Delivery</span></div>
+          <h3>Mentoro – Quiz App</h3>
+          <div class="case-grid">
+            <dl class="case-facts">
+              <div><dt>Context</dt><dd>Cross-functional Agile team</dd></div>
+              <div><dt>Role</dt><dd>Full-Stack Engineer</dd></div>
+              <div><dt>Stack</dt><dd>React, Node.js, PostgreSQL, WebSockets</dd></div>
+            </dl>
+            <div class="case-body">
+              <p>A real-time quiz platform for interactive learning. Mentors create and host live sessions while students join, answer and get feedback instantly. I built the RESTful API for auth, quiz management and scoring, a role-based React interface, and a normalised PostgreSQL schema.</p>
+              <p class="case-quote">Shipped through sprint planning, PR review and pair programming — like production work, because it was.</p>
+              <div class="case-links">
+                <a class="case-link" href="https://github.com/samirahekmati/quiz-app" target="_blank" rel="noopener">GitHub →</a>
+                <a class="case-link" href="https://mentoro.hosting.codeyourfuture.io/" target="_blank" rel="noopener">Live Demo →</a>
+              </div>
             </div>
           </div>
-          <div class="skill-category card">
-            <h3>Core Concepts</h3>
-            <p>
-              REST APIs, Responsive UI, TDD, DOM Manipulation, Legacy Code
-              Refactoring, Accessibility.
-            </p>
-          </div>
         </div>
-      </section>
 
-      <section id="projects">
-        <h2 data-i18n="projects.title">Projects</h2>
-        <div class="projects-container">
-          <!-- Dynamic project cards will be injected here -->
-        </div>
-      </section>
-
-      <section id="resume">
-        <h2 data-i18n="resume.title">Resume</h2>
-        <div class="resume-container">
-          <div class="timeline">
-            <div class="timeline-item">
-              <h3>Software Engineering Programme</h3>
-              <p class="timeline-details">
-                CodeYourFuture | Full-time | Sep 2024 – Present
-              </p>
-              <ul>
-                <li>
-                  Built full-stack applications with JavaScript/Node.js and
-                  React, applying clean code, testing (Jest), and Git workflows.
-                </li>
-                <li>
-                  Collaborated in teams with regular code reviews and iterative
-                  delivery.
-                </li>
-                <li>
-                  Analysed and refactored complex legacy codebases, focusing on
-                  improving functionality, performance and maintainability.
-                </li>
-              </ul>
-            </div>
-            <div class="timeline-item">
-              <h3>Web Developer – Freelance</h3>
-              <p class="timeline-details">
-                Remote / Self-Employed | 2023 – Present
-              </p>
-              <ul>
-                <li>
-                  Delivered client-facing apps with responsive, accessible UIs
-                  and user-friendly interfaces.
-                </li>
-                <li>
-                  Managed full development cycle, from requirements gathering to
-                  deployment.
-                </li>
-                <li>
-                  Achieved 100% Lighthouse accessibility score on multiple
-                  client projects.
-                </li>
-              </ul>
-            </div>
-            <div class="timeline-item">
-              <h3>Senior Architect</h3>
-              <p class="timeline-details">
-                SISI Company | Full-time | 2016 – 2023
-              </p>
-              <ul>
-                <li>
-                  Led multi-disciplinary teams to deliver large-scale commercial
-                  and residential projects, from concept design to completion.
-                </li>
-                <li>
-                  Designed and optimised complex building systems, applying
-                  problem-solving approaches similar to software architecture
-                  principles.
-                </li>
-              </ul>
+        <div class="case spot-card glass" style="--card-accent:var(--pink); --card-glow:var(--pink-glow);">
+          <div class="case-tags"><span class="tag tag--pink">Engineering</span><span class="tag tag--muted">Solo Build</span></div>
+          <h3>PiTranslate</h3>
+          <div class="case-grid">
+            <dl class="case-facts">
+              <div><dt>Context</dt><dd>Independent build</dd></div>
+              <div><dt>Role</dt><dd>Sole Developer</dd></div>
+              <div><dt>Stack</dt><dd>Node.js, Firebase, OpenAI API</dd></div>
+            </dl>
+            <div class="case-body">
+              <p>An AI-powered language-learning app for translations, idioms and personalised practice. The OpenAI API generates translations and examples, backed by spaced-repetition review, persistent login, and a low-friction guest mode for anyone who wants to try it without signing up.</p>
+              <p class="case-quote">Solo build, AI-integrated, accessible by default.</p>
+              <div class="case-links">
+                <a class="case-link" href="https://github.com/PooriyaKTB/PiTranslate" target="_blank" rel="noopener">GitHub →</a>
+                <a class="case-link" href="https://pitranslate.netlify.app/" target="_blank" rel="noopener">Live Demo →</a>
+              </div>
             </div>
           </div>
-          <div class="education">
-            <h3>Education</h3>
-            <p><strong>BSc in Architecture</strong> - Azad University</p>
-          </div>
         </div>
-        <div class="resume-download-wrapper">
-          <a
-            href="./assets/POORIYA KETABI CV.pdf"
-            class="cta-button"
-            download
-            data-i18n="resume.download"
-            >Download PDF</a
-          >
-        </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section id="contact">
-        <h2 data-i18n="contact.title">Contact</h2>
-        <div class="contact-container">
-          <div class="contact-info">
-            <a href="mailto:me@pooriya.dev" class="contact-link">
-              <i class="fa-solid fa-envelope"></i>
-              <span>me@pooriya.dev</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/pooriya-ketabi"
-              target="_blank"
-              class="contact-link"
-            >
-              <i class="fa-brands fa-linkedin"></i>
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://github.com/PooriyaKTB"
-              target="_blank"
-              class="contact-link"
-            >
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-            <a
-              href="https://calendly.com/pooriya-ketabi/online-meeting"
-              id="calendly-link"
-              class="contact-link"
-            >
-              <i class="fa-solid fa-calendar-days"></i>
-              <span>Book a Meeting</span>
-            </a>
+  <!-- TRACK RECORD -->
+  <section id="record" class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Track Record</span>
+        <h2>Where this came from</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="log-entry log-entry--violet">
+          <span class="log-date mono">2026 · 2 months</span>
+          <div class="log-title-row">
+            <span class="log-role">Business Analysis &amp; Tech Consultant</span>
+            <span class="tag tag--violet">Business Analysis</span>
           </div>
-          <form
-            action="https://formspree.io/f/myzwyqlp"
-            method="POST"
-            class="contact-form"
-          >
-            <label for="name" data-i18n="form.name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              autocomplete="name"
-              required
-            />
+          <span class="log-org">Capgemini — Tech4Positive Futures Programme</span>
+          <ul class="log-list">
+            <li>Co-analysed accessibility barriers in a cross-functional team, co-designing the business model and Lean Canvas for ThisAbility.</li>
+            <li>Took ownership of architecting and building the showcase website and interactive MVP prototype.</li>
+            <li>Co-pitched the strategic product vision and functional MVP to senior judges at Google London.</li>
+          </ul>
+        </div>
 
-            <label for="email" data-i18n="form.email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="_replyto"
-              autocomplete="email"
-              required
-            />
+        <div class="log-entry log-entry--pink">
+          <span class="log-date mono">2024 – Present</span>
+          <div class="log-title-row">
+            <span class="log-role">Software Engineering Programme</span>
+            <span class="tag tag--pink">Engineering</span>
+          </div>
+          <span class="log-org">CodeYourFuture · Full-time</span>
+          <ul class="log-list">
+            <li>Built full-stack applications with JavaScript, Node.js and React using clean code and Git-based workflows.</li>
+            <li>Collaborated through regular code reviews, pair programming and iterative delivery.</li>
+            <li>Applied algorithmic thinking to find and fix performance bottlenecks in legacy codebases.</li>
+          </ul>
+        </div>
 
-            <label for="message" data-i18n="form.message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+        <div class="log-entry log-entry--blue">
+          <span class="log-date mono">2016 – 2023</span>
+          <div class="log-title-row">
+            <span class="log-role">Senior Architect</span>
+            <span class="tag tag--blue">Leadership</span>
+          </div>
+          <span class="log-org">SISI Engineers Group · Full-time</span>
+          <ul class="log-list">
+            <li>Led multi-disciplinary teams delivering large-scale commercial and residential projects end to end.</li>
+            <li>Coordinated digital and construction workflows across stakeholders and timelines using AutoCAD, Revit and PM systems.</li>
+            <li>Mentored junior team members and delivered projects up to 15% under budget through more efficient planning.</li>
+          </ul>
+        </div>
+      </div>
 
-            <div id="form-error" class="contact-error"></div>
+      <div class="credentials reveal">
+        <span class="cap-head-sm">Credentials</span>
+        <div class="cred-row">
+          <span class="cred-name">Software Developer Certificate</span>
+          <span class="cred-org">CodeYourFuture</span>
+        </div>
+        <div class="cred-row">
+          <span class="cred-name">BSc in Architecture</span>
+          <span class="cred-org">Azad University · 2:1</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <button
-              type="submit"
-              id="submit"
-              data-i18n="form.send"
-              name="submit"
-            >
-              Send
-            </button>
+  <!-- CONTACT -->
+  <section id="contact" class="section section--alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Let's talk</h2>
+      </div>
+      <p class="contact-lede reveal">Whether you need a full-stack build, someone who can sit with stakeholders and come back with a real plan, or both — I'm open to full-stack roles and freelance work in the UK and remote.</p>
+
+      <div class="contact-panel glass reveal">
+        <div class="contact-grid">
+          <div>
+            <dl class="corr-list">
+              <div class="corr-row"><dt>Email</dt><dd><a href="mailto:me@pooriya.dev">me@pooriya.dev</a></dd></div>
+              <div class="corr-row"><dt>Phone</dt><dd><a href="tel:+447770344782">+44 7770 344782</a></dd></div>
+              <div class="corr-row"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/pooriya-ketabi" target="_blank" rel="noopener">/pooriya-ketabi</a></dd></div>
+              <div class="corr-row"><dt>GitHub</dt><dd><a href="https://github.com/PooriyaKTB" target="_blank" rel="noopener">/PooriyaKTB</a></dd></div>
+            </dl>
+            <div class="contact-actions">
+              <span class="btn-primary-wrap"><a href="mailto:me@pooriya.dev" class="btn-primary">Email me</a></span>
+              <a class="btn" href="https://calendly.com/pooriya-ketabi/online-meeting" id="bookMeetingBtn" target="_blank" rel="noopener">Book a meeting</a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/myzwyqlp" method="POST">
+            <div class="form-field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Your email</label>
+              <input id="cf-email" name="email" type="email" required autocomplete="email">
+            </div>
+            <div class="form-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required placeholder="What are you working on?"></textarea>
+            </div>
+            <div class="form-foot">
+              <span class="btn-primary-wrap"><button type="submit" class="btn-primary" id="cf-submit">Send message</button></span>
+              <span class="form-note" id="cf-status">Sent straight to my inbox</span>
+            </div>
           </form>
         </div>
 
-        <div id="form-success" class="contact-success" data-i18n="form.success">
-          Your message was sent successfully!
+        <div class="contact-signoff">
+          <span class="mark">PK</span>
+          <p>Full-Stack Software Engineer<br>Business Analyst &amp; Tech Consultant<br>Formerly Senior Architect</p>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      <img src="icons/LOGO/logo1.png" alt="Pooriya logo" />
-      <span>© 2025 Pooriya. All rights reserved.</span>
-    </footer>
+</main>
 
-    <script src="main.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Calendly badge widget begin -->
-    <link
-      href="https://assets.calendly.com/assets/external/widget.css"
-      rel="stylesheet"
-    />
-    <script
-      src="https://assets.calendly.com/assets/external/widget.js"
-      type="text/javascript"
-      async
-    ></script>
-    <!-- Calendly badge widget end -->
-  </body>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Pooriya Ketabi</p>
+    <a href="#hero">← Back to top</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
 </html>

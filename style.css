@@ -49,7 +49,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 0.1rem 2rem; /* Further adjusted padding */
+  padding: 0.85rem 2rem;
   background-color: var(--glass-bg-light);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -71,7 +71,7 @@ nav {
 }
 
 .logo img {
-  height: 90px; /* Even larger logo */
+  height: 48px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -151,6 +151,8 @@ body.dark .mode-toggle-btn:hover {
 
 /* Hero Section */
 #hero {
+  max-width: none;
+  margin: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -225,7 +227,7 @@ body.dark #hero {
 
 /* General Section Styling */
 section {
-  padding: 6rem 2rem;
+  padding: 4.5rem 2rem;
   max-width: 1200px;
   margin: auto;
 }
@@ -310,6 +312,23 @@ body.dark .skill-category {
   font-size: 1.05rem;
 }
 
+.concept-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.concept-tags span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 170, 255, 0.12);
+  color: var(--primary);
+  border: 1px solid rgba(0, 170, 255, 0.25);
+}
+
 /* Projects Section */
 .projects-container {
   display: grid;
@@ -320,7 +339,7 @@ body.dark .skill-category {
 .project-card {
   display: flex;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .project-tech-stack {
@@ -355,7 +374,9 @@ body.dark .project-tech-stack {
 .project-links {
   margin-top: 1.5rem;
   display: flex;
-  gap: 2rem; /* Increased gap */
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
+  column-gap: 1.5rem;
 }
 
 .project-link {
@@ -451,7 +472,7 @@ body.dark .timeline-item::before {
 }
 
 .education {
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -736,7 +757,33 @@ footer img {
 
 .resume-download-wrapper {
   text-align: center;
-  margin-top: 4rem; /* Increased margin */
+  margin-top: 2.5rem;
+}
+
+/* Reveal-on-scroll (see main.js). Gated behind prefers-reduced-motion so
+   that opacity:0 never applies at all for users who've asked for less
+   motion — they just see the content. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .skills-grid > .reveal:nth-child(2),
+  .projects-container > .reveal:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+
+  .skills-grid > .reveal:nth-child(3),
+  .projects-container > .reveal:nth-child(3) {
+    transition-delay: 0.2s;
+  }
 }
 
 /* Media Queries */
