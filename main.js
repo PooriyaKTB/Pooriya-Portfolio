@@ -1,112 +1,34 @@
 // main.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modeToggle = document.getElementById("mode-toggle");
-  const body = document.body;
-  const container = document.querySelector(".projects-container");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hoverCapable = window.matchMedia("(hover: hover)").matches;
 
-  // Mode toggle
-  modeToggle.addEventListener("click", () => {
-    body.classList.toggle("dark");
-    const isDarkMode = body.classList.contains("dark");
-    modeToggle.innerHTML = isDarkMode
-      ? `<i class="fa-solid fa-sun"></i>`
-      : `<i class="fa-solid fa-moon"></i>`;
-    localStorage.setItem("mode", isDarkMode ? "dark" : "light");
-  });
-
-  // Load saved theme
-  const savedMode = localStorage.getItem("mode");
-  if (savedMode === "light") {
-    body.classList.remove("dark");
-    modeToggle.innerHTML = `<i class="fa-solid fa-moon"></i>`;
-  }
-
-  const pinnedProjects = [
-    {
-      name: "ThisAbility – EquiVerse",
-      technologies: ["html5", "css3", "javascript"],
-      description:
-        "An accessibility-focused transport planning prototype exploring how personalised routing and real-time information can improve confidence and independence for people with disabilities. Presented at Google London HQ as part of the Tech4Positive Futures programme.",
-      github: "https://github.com/PooriyaKTB/T4PF---ThisAbility",
-      website: "https://t4pf-equiverse-thisability.netlify.app/",
-      demo: "https://t4pf-thisability-mvp.netlify.app/",
-    },
-    {
-      name: "Mentoro – Quiz App",
-      technologies: ["react", "tailwindcss", "nodejs", "postgresql", "docker"],
-      description:
-        "A real-time quiz platform for interactive learning. Mentors host live quizzes with WebSocket-powered instant scoring, and students join to submit answers in real time.",
-      github: "https://github.com/samirahekmati/quiz-app",
-      demo: "https://mentoro.hosting.codeyourfuture.io/",
-    },
-    {
-      name: "PiTranslate",
-      technologies: [
-        "javascript",
-        "nodejs",
-        "express",
-        "firebase",
-        "html5",
-        "css3",
-      ],
-      description:
-        "An AI-powered language-learning companion using the OpenAI API to generate translations, idioms, and example sentences, with spaced repetition review for personalised practice.",
-      github: "https://github.com/PooriyaKTB/PiTranslate",
-      demo: "https://pitranslate.netlify.app/",
-    },
-  ];
-
-  function renderProjects() {
-    container.innerHTML = "";
-    pinnedProjects.forEach((repo) => {
-      const card = document.createElement("div");
-      card.className = "card project-card";
-
-      const techIcons = repo.technologies
-        .map(
-          (tech) =>
-            `<i class="devicon-${tech}-plain colored" title="${tech}"></i>`
-        )
-        .join("");
-
-      card.innerHTML = `
-        <div class="project-tech-stack">
-          ${techIcons}
-        </div>
-        <div class="project-content">
-        <h3>${repo.name}</h3>
-          <p>${repo.description}</p>
-        <div class="project-links">
-            <a href="${
-              repo.github
-            }" class="project-link github" target="_blank">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-            ${
-              repo.website
-                ? `<a href="${repo.website}" class="project-link website" target="_blank">
-            <i class="fa-solid fa-globe"></i> Website
-          </a>`
-                : ""
-            }
-            ${
-              repo.demo
-                ? `<a href="${repo.demo}" class="project-link live" target="_blank">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-          </a>`
-                : ""
-            }
-          </div>
-        </div>
-      `;
-      container.appendChild(card);
+  /* Mobile nav */
+  const navToggle = document.getElementById("navToggle");
+  const siteNav = document.getElementById("siteNav");
+  if (navToggle && siteNav) {
+    const closeNav = () => {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+    navToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = siteNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", open);
+    });
+    siteNav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeNav));
+    document.addEventListener("click", (e) => {
+      if (siteNav.classList.contains("is-open") && !siteNav.contains(e.target) && e.target !== navToggle) {
+        closeNav();
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
     });
   }
 
-  renderProjects();
-
-  // Typewriter effect on the hero heading
+  /* Typewriter effect on the hero heading */
   const tw = document.querySelector(".typewriter");
   if (tw) {
     const typeText = tw.textContent;
@@ -122,130 +44,166 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(type, 200);
   }
 
-  // AJAX Contact Form Submission
-  const contactForm = document.querySelector(".contact-form");
-  const formSuccessMessage = document.getElementById("form-success");
-  const formErrorMessage = document.getElementById("form-error");
-
-  // Basic email validation regex
-  const isValidEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton.textContent;
-
-      // --- Client-side validation ---
-      const name = formData.get("name").trim();
-      const email = formData.get("_replyto").trim();
-      const message = formData.get("message").trim();
-
-      formErrorMessage.classList.remove("show"); // Hide previous errors
-
-      if (!name || !email || !message) {
-        formErrorMessage.textContent = "Please fill out all fields.";
-        formErrorMessage.classList.add("show");
-        return; // Stop the submission
-      }
-
-      if (!isValidEmail(email)) {
-        formErrorMessage.textContent = "Please enter a valid email address.";
-        formErrorMessage.classList.add("show");
-        return; // Stop the submission
-      }
-      // --- End of validation ---
-
-      // Disable button and show a sending state
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending...";
-
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) {
-            formSuccessMessage.classList.add("show");
-            form.reset();
-            setTimeout(() => {
-              formSuccessMessage.classList.remove("show");
-            }, 5000); // Hide after 5 seconds
-          } else {
-            // Handle server errors from Formspree
-            response.json().then((data) => {
-              if (Object.hasOwn(data, "errors")) {
-                const errorMessages = data.errors
-                  .map((error) => error.message)
-                  .join(", ");
-                formErrorMessage.textContent = `Error: ${errorMessages}`;
-                formErrorMessage.classList.add("show");
-              } else {
-                formErrorMessage.textContent =
-                  "An unexpected error occurred. Please try again.";
-                formErrorMessage.classList.add("show");
-              }
-            });
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add("is-visible"), (i * 60) % 240);
+            io.unobserve(entry.target);
           }
-        })
-        .catch((error) => {
-          // Handle network errors
-          formErrorMessage.textContent =
-            "A network error occurred. Please check your connection and try again.";
-          formErrorMessage.classList.add("show");
-          console.error("Form submission network error:", error);
-        })
-        .finally(() => {
-          // Re-enable the button and restore its original text
-          submitButton.disabled = false;
-          submitButton.textContent = originalButtonText;
         });
-    });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // Calendly pop-up logic
-  const calendlyLink = document.getElementById("calendly-link");
-  if (calendlyLink) {
-    calendlyLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      Calendly.initPopupWidget({
-        url: "https://calendly.com/pooriya-ketabi/online-meeting",
+  /* Scroll progress bar */
+  const progressFill = document.getElementById("progressFill");
+  function updateProgress() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    progressFill.style.width = Math.min(100, Math.max(0, pct)) + "%";
+  }
+  if (progressFill) {
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* Cursor glow */
+  const cursorGlow = document.getElementById("cursorGlow");
+  if (cursorGlow && hoverCapable && !reduceMotion) {
+    let gx = window.innerWidth / 2,
+      gy = window.innerHeight / 2,
+      cx = gx,
+      cy = gy;
+    window.addEventListener("mousemove", (e) => {
+      gx = e.clientX;
+      gy = e.clientY;
+      cursorGlow.style.opacity = "1";
+    });
+    (function loop() {
+      cx += (gx - cx) * 0.12;
+      cy += (gy - cy) * 0.12;
+      cursorGlow.style.left = cx + "px";
+      cursorGlow.style.top = cy + "px";
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* Magnetic buttons */
+  if (hoverCapable && !reduceMotion) {
+    document.querySelectorAll(".btn, .btn-primary").forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.18;
+        const y = (e.clientY - r.top - r.height / 2) * 0.28;
+        btn.style.transform = "translate(" + x + "px," + y + "px)";
+      });
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "";
       });
     });
   }
 
-  // Reveal-on-scroll. Progressive enhancement only: elements are visible by
-  // default, and only get the fade-in treatment once JS opts them in, so a
-  // script failure or an unsupported browser never leaves content hidden.
-  if ("IntersectionObserver" in window) {
-    const revealTargets = document.querySelectorAll(
-      "#about, #projects, #resume, #contact, .card, .contact-form, .cta-button"
-    );
-    revealTargets.forEach((el) => el.classList.add("reveal"));
+  /* Spotlight cards */
+  if (hoverCapable) {
+    document.querySelectorAll(".spot-card").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", e.clientX - r.left + "px");
+        card.style.setProperty("--my", e.clientY - r.top + "px");
+      });
+    });
+  }
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
+  /* Book a meeting — open Calendly as an in-page popup instead of a new tab */
+  const bookBtn = document.getElementById("bookMeetingBtn");
+  if (bookBtn) {
+    bookBtn.addEventListener("click", (e) => {
+      if (window.Calendly) {
+        e.preventDefault();
+        window.Calendly.initPopupWidget({ url: "https://calendly.com/pooriya-ketabi/online-meeting" });
+      }
+      // if the Calendly script hasn't loaded yet, the link still works as a normal fallback
+    });
+  }
+
+  /* Contact form — AJAX submit to Formspree with inline validation and status */
+  const contactForm = document.getElementById("contactForm");
+  const statusNote = document.getElementById("cf-status");
+  const submitBtn = document.getElementById("cf-submit");
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  function setStatus(message, tone) {
+    if (!statusNote) return;
+    statusNote.textContent = message;
+    statusNote.classList.remove("is-error", "is-success");
+    if (tone) statusNote.classList.add(tone);
+  }
+
+  if (contactForm) {
+    const defaultStatus = statusNote ? statusNote.textContent : "";
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const name = formData.get("name").trim();
+      const email = formData.get("email").trim();
+      const message = formData.get("message").trim();
+
+      if (!name || !email || !message) {
+        setStatus("Please fill out all fields.", "is-error");
+        return;
+      }
+      if (!isValidEmail(email)) {
+        setStatus("Please enter a valid email address.", "is-error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const originalLabel = submitBtn.textContent;
+      submitBtn.textContent = "Sending…";
+      setStatus("Sending your message…", null);
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (response.ok) {
+            form.reset();
+            setStatus("Thanks — your message is on its way.", "is-success");
+            setTimeout(() => setStatus(defaultStatus, null), 5000);
+          } else {
+            response.json().then((data) => {
+              const errorMessages =
+                data && data.errors ? data.errors.map((error) => error.message).join(", ") : null;
+              setStatus(errorMessages || "Something went wrong. Please try again.", "is-error");
+            });
           }
+        })
+        .catch(() => {
+          setStatus("Network error — please check your connection and try again.", "is-error");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
         });
-      },
-      { threshold: 0.15 }
-    );
-    revealTargets.forEach((el) => observer.observe(el));
+    });
   }
 });
 
+/* PWA service worker registration */
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker

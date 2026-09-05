@@ -1,10 +1,11 @@
-const CACHE_NAME = 'pooriya-portfolio-v2';
+const CACHE_NAME = 'pooriya-portfolio-v3';
 const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
   '/main.js',
-  './assets/POORIYA KETABI CV.pdf',
+  './assets/Pooriya-Ketabi-CV.pdf',
+  './icons/favicon.ico',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];

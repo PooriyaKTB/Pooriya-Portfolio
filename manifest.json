@@ -1,11 +1,11 @@
 {
-    "name": "Pooriya's Portfolio",
+    "name": "Pooriya Ketabi — Full-Stack Engineer & Technical Business Analyst",
     "short_name": "Pooriya",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#111111",
-    "theme_color": "#0077cc",
-    "description": "Creative frontend developer portfolio — projects, resume, and contact.",
+    "background_color": "#06060F",
+    "theme_color": "#06060F",
+    "description": "Pooriya Ketabi — full-stack software engineer with senior-level business analysis and architecture leadership experience.",
     "icons": [
       {
         "src": "./icons/icon-192.png",
