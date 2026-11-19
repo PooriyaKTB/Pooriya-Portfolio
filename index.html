@@ -2,398 +2,243 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>
-  if (window.location.hostname === "www.pooriya.dev") {
-    window.location.replace("https://pooriya.dev");
-  }
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#06060F">
-<meta name="color-scheme" content="dark">
-<meta name="robots" content="index, follow">
-<meta name="description" content="Pooriya Ketabi — full-stack software engineer with senior-level business analysis and architecture leadership experience.">
+<title>Pooriya Ketabi | Full-Stack Software Engineer</title>
+<meta name="description" content="Pooriya Ketabi, full-stack software engineer. Seven years designing buildings as a senior architect, now building software with Java, Node.js, React and PostgreSQL.">
 <link rel="canonical" href="https://pooriya.dev/">
-<title>Pooriya Ketabi - Full-Stack Software Engineer</title>
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0F1113">
+<meta name="color-scheme" content="dark">
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pooriya.dev/">
-<meta property="og:title" content="Pooriya Ketabi — Full-Stack Software Engineer">
-<meta property="og:description" content="Seven years leading architecture teams, a business analysis stretch, now full-stack software engineering — all three showing up in how I build.">
+<meta property="og:title" content="Pooriya Ketabi | Full-Stack Software Engineer">
+<meta property="og:description" content="Seven years designing buildings. Now building software with Java, Node.js, React and PostgreSQL.">
 <meta property="og:image" content="https://pooriya.dev/assets/preview.png">
-
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Pooriya Ketabi — Full-Stack Software Engineer">
-<meta name="twitter:description" content="Seven years leading architecture teams, a business analysis stretch, now full-stack software engineering — all three showing up in how I build.">
+<meta name="twitter:title" content="Pooriya Ketabi | Full-Stack Software Engineer">
+<meta name="twitter:description" content="Seven years designing buildings. Now building software with Java, Node.js, React and PostgreSQL.">
 <meta name="twitter:image" content="https://pooriya.dev/assets/preview.png">
 
-<!-- Preconnect & Preload -->
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="style.css"></noscript>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-<!-- Favicon + Manifest -->
-<link rel="icon" href="icons/LOGO/logo1.png" sizes="any">
-<link rel="icon" href="icons/LOGO/logo1.png" type="image/png">
-<link rel="apple-touch-icon" href="icons/LOGO/logo1.png">
-<link rel="manifest" href="./manifest.json">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
-<div class="mesh" aria-hidden="true">
-  <div class="blob blob-a"></div>
-  <div class="blob blob-b"></div>
-  <div class="blob blob-c"></div>
-  <div class="blob blob-d"></div>
-</div>
-<div class="noise" aria-hidden="true"></div>
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-<div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <nav class="nav-pill">
-    <a href="#hero" class="mark" aria-label="Pooriya Ketabi — home"><img src="./icons/LOGO/logo2.png" alt=""></a>
-    <div class="site-nav" id="siteNav">
-      <a href="#positioning">Positioning</a>
-      <a href="#approach">Approach</a>
-      <a href="#capabilities">Capabilities</a>
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="Pooriya Ketabi, back to top">
+      <img src="icons/LOGO/logo2-header.png" alt="Pooriya" width="96" height="46">
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav" aria-label="Main">
       <a href="#work">Work</a>
-      <a href="#record">Track Record</a>
+      <a href="#background">Background</a>
+      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
-    </div>
-    <a class="btn header-dl" href="assets/Pooriya-Ketabi-CV.pdf" download>Download CV</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </nav>
+      <a href="assets/Pooriya-Ketabi-CV.pdf" class="nav-cv" download>CV</a>
+    </nav>
+  </div>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="wrap hero-inner">
-      <span class="eyebrow">Pooriya Ketabi — Full-Stack Software Engineer</span>
-      <h1 class="gradient-text typewriter">I've run the room before I ever wrote the code.</h1>
-      <p class="hero-lede">Seven years as a senior architect. A recent stretch as a business analyst and tech consultant. Now full-stack software engineering. Most people bring one of these to a team. I bring all three — and they all show up in how I build.</p>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="label">Pooriya Ketabi, Full-Stack Software Engineer</p>
+      <h1>I spent seven years designing buildings. Now I build software.</h1>
+      <p class="hero-lede">I work across the stack with Java, Node.js, React and PostgreSQL. The habits from architecture came with me: understand the problem before drawing anything, make trade-offs out loud, and get a team to the finish line.</p>
       <div class="hero-actions">
-        <span class="btn-primary-wrap"><a href="#positioning" class="btn-primary">See how it fits together</a></span>
-        <a href="assets/Pooriya-Ketabi-CV.pdf" download class="btn">Download CV</a>
-      </div>
-      <div class="hero-badges">
-        <span class="badge badge--blue"><span class="dot"></span>Architecture &amp; Leadership</span>
-        <span class="badge badge--violet"><span class="dot"></span>Business Analysis &amp; Strategy</span>
-        <span class="badge badge--pink"><span class="dot"></span>Software Engineering</span>
+        <a href="#work" class="btn btn-primary">See my work</a>
+        <a href="assets/Pooriya-Ketabi-CV.pdf" class="btn btn-ghost" download>Download CV</a>
       </div>
     </div>
   </section>
 
-  <!-- POSITIONING -->
-  <section id="positioning" class="section">
+  <section class="section" id="work">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Positioning</span>
-        <h2>Three disciplines. One build process.</h2>
-        <p>Most portfolios show projects. This one shows why the same person who scoped the business case also wrote the code — and what that combination is actually good for on a team.</p>
-      </div>
+      <h2>Selected work</h2>
 
-      <div class="track-grid reveal">
-        <div class="track-card spot-card glass track-card--blue">
-          <span class="years mono">2016 – 2023</span>
-          <h3>Architecture &amp; Leadership</h3>
-          <p>Led multi-disciplinary teams from a client's first sketch to the ribbon-cutting — coordinating stakeholders, timelines and trade-offs between cost, performance and sustainability. Mentored junior staff and made the calls when priorities conflicted.</p>
-          <div class="takeaway"><b>On a team:</b> comfortable owning ambiguity, making trade-off calls, and mentoring without hand-holding.</div>
-        </div>
-        <div class="track-card spot-card glass track-card--violet">
-          <span class="years mono">2026 · 2 months</span>
-          <h3>Business Analysis &amp; Tech Consulting</h3>
-          <p>Co-designed the business model and Lean Canvas for an accessibility platform from scratch — interviews, competitor research, requirements — then co-pitched the strategic vision to senior judges at Google London.</p>
-          <div class="takeaway"><b>On a team:</b> can sit in a requirements meeting and leave with a real, buildable plan — not a backlog of guesses.</div>
-        </div>
-        <div class="track-card spot-card glass track-card--pink">
-          <span class="years mono">2024 – Present</span>
-          <h3>Software Engineering</h3>
-          <p>Built and shipped three full-stack products, solo and in Agile teams — real-time systems, AI integrations, and testing discipline baked in from day one, not bolted on at the end.</p>
-          <div class="takeaway"><b>On a team:</b> hands-on delivery that doesn't need someone else to translate the requirements first.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPROACH -->
-  <section id="approach" class="section section--alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Approach</span>
-        <h2>The sequence I don't skip</h2>
-        <p>Buildings and software tend to fail for the same reason: someone jumped straight to building. This is the sequence either way.</p>
-      </div>
-
-      <div class="approach-stepper reveal" aria-hidden="true">
-        <span class="node mono">01</span>
-        <span class="node mono">02</span>
-        <span class="node mono">03</span>
-        <span class="node mono">04</span>
-      </div>
-      <div class="approach-row reveal">
-        <div class="approach-step glass">
-          <h3>Discover</h3>
-          <p>Understand who's using this and why, before drawing anything — user interviews, desk research, competitor analysis.</p>
-        </div>
-        <div class="approach-step glass">
-          <h3>Define</h3>
-          <p>Turn research into a scope someone can sign off on. This is where ambiguity has to end.</p>
-        </div>
-        <div class="approach-step glass">
-          <h3>Build</h3>
-          <p>Execute against real constraints — budget, timeline, legacy code. Clean, tested, built to hold up.</p>
-        </div>
-        <div class="approach-step glass">
-          <h3>Deliver</h3>
-          <p>Ship it, then defend it — to inspectors, code reviewers, or judges at Google London.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CAPABILITIES -->
-  <section id="capabilities" class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Capabilities</span>
-        <h2>What each discipline actually contributes</h2>
-        <p>Not a flat skills list — grouped by where each capability comes from.</p>
-      </div>
-
-      <div class="cap-grid reveal">
-        <div class="cap-col cap-col--violet">
-          <span class="cap-head">Product &amp; Strategy</span>
-          <ul>
-            <li>Stakeholder interviews &amp; desk research</li>
-            <li>Competitor analysis</li>
-            <li>Lean Canvas &amp; business modelling</li>
-            <li>MVP scoping</li>
-            <li>Requirements translation</li>
-            <li>Executive &amp; stakeholder pitching</li>
-          </ul>
-        </div>
-        <div class="cap-col cap-col--pink">
-          <span class="cap-head">Engineering</span>
-          <ul>
-            <li>Java, JavaScript, Python</li>
-            <li>React, Tailwind CSS, Responsive UI</li>
-            <li>Node.js, Express, REST API, JWT, WebSocket</li>
-            <li>PostgreSQL, MongoDB, Neo4j</li>
-            <li>JUnit, AssertJ, Jest, TDD, API Mocking</li>
-            <li>Git, Docker, Kafka, linux, CI/CD</li>
-          </ul>
-        </div>
-        <div class="cap-col cap-col--blue">
-          <span class="cap-head">Leadership &amp; Delivery</span>
-          <ul>
-            <li>Multi-disciplinary team leadership</li>
-            <li>Mentoring junior team members</li>
-            <li>Budget &amp; trade-off management</li>
-            <li>Cross-functional Agile collaboration</li>
-            <li>Code review &amp; pair programming</li>
-            <li>Stakeholder communication</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES -->
-  <section id="work" class="section section--alt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Selected Work</span>
-        <h2>Case studies</h2>
-        <p>Each one draws on a different mix of the three disciplines above.</p>
-      </div>
-
-      <div class="reveal">
-        <div class="case spot-card glass" style="--card-accent:var(--violet); --card-glow:var(--violet-glow);">
-          <div class="case-tags"><span class="tag tag--violet">Business Analysis</span><span class="tag tag--pink">Engineering</span></div>
-          <h3>ThisAbility – EquiVerse</h3>
-          <div class="case-grid">
-            <dl class="case-facts">
-              <div><dt>Context</dt><dd>Capgemini Tech4Positive Futures</dd></div>
-              <div><dt>Role</dt><dd>Research &amp; Sole Developer</dd></div>
-              <div><dt>Stack</dt><dd>JS, TfL API, GraphHopper API</dd></div>
-            </dl>
-            <div class="case-body">
-              <p>An accessibility-focused transport planning prototype. I ran the interviews, surveys and competitor research that defined the brief, co-designed the Lean Canvas, then built the interactive prototype myself — combining transport and navigation APIs to demonstrate confident, independent journey planning for people with disabilities.</p>
-              <p class="case-quote">Owned it end-to-end: from user interviews to the pitch at Google London.</p>
-              <div class="case-links">
-                <a class="case-link" href="https://github.com/PooriyaKTB/T4PF---ThisAbility" target="_blank" rel="noopener">GitHub →</a>
-                <a class="case-link" href="https://t4pf-equiverse-thisability.netlify.app/" target="_blank" rel="noopener">Website →</a>
-                <a class="case-link" href="https://t4pf-thisability-mvp.netlify.app/" target="_blank" rel="noopener">Live Demo →</a>
-              </div>
-            </div>
+      <article class="case">
+        <dl class="case-facts">
+          <div><dt>Context</dt><dd>Personal project, in progress</dd></div>
+          <div><dt>Role</dt><dd>Sole developer</dd></div>
+          <div><dt>Stack</dt><dd>Java, Apache Kafka, Quartz, Docker, JUnit</dd></div>
+        </dl>
+        <div class="case-body">
+          <h3>Event-Driven Job Scheduler</h3>
+          <p>A cron scheduler where deciding <em>when</em> a job runs and actually <em>running</em> it are two separate parts of the system. Quartz reads the cron expression and fires at the right moment, but instead of doing the work itself, the scheduler publishes an event to Kafka. Independent consumers pick those events up and execute the jobs.</p>
+          <p class="case-note">Splitting scheduling from execution means each side can scale and fail on its own. I'm now working on retries and failure handling when a consumer drops a job halfway through.</p>
+          <div class="case-links">
+            <a href="https://github.com/PooriyaKTB/Event-driven-Architecture-Kafka" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
+      </article>
 
-        <div class="case spot-card glass" style="--card-accent:var(--pink); --card-glow:var(--pink-glow);">
-          <div class="case-tags"><span class="tag tag--pink">Engineering</span><span class="tag tag--muted">Team Delivery</span></div>
-          <h3>Mentoro – Quiz App</h3>
-          <div class="case-grid">
-            <dl class="case-facts">
-              <div><dt>Context</dt><dd>Cross-functional Agile team</dd></div>
-              <div><dt>Role</dt><dd>Full-Stack Engineer</dd></div>
-              <div><dt>Stack</dt><dd>React, Node.js, PostgreSQL, WebSockets</dd></div>
-            </dl>
-            <div class="case-body">
-              <p>A real-time quiz platform for interactive learning. Mentors create and host live sessions while students join, answer and get feedback instantly. I built the RESTful API for auth, quiz management and scoring, a role-based React interface, and a normalised PostgreSQL schema.</p>
-              <p class="case-quote">Shipped through sprint planning, PR review and pair programming — like production work, because it was.</p>
-              <div class="case-links">
-                <a class="case-link" href="https://github.com/samirahekmati/quiz-app" target="_blank" rel="noopener">GitHub →</a>
-                <a class="case-link" href="https://mentoro.grads.hosting.cyf.academy/" target="_blank" rel="noopener">Live Demo →</a>
-              </div>
-            </div>
+      <article class="case">
+        <dl class="case-facts">
+          <div><dt>Context</dt><dd>Capgemini Tech4Positive Futures</dd></div>
+          <div><dt>Role</dt><dd>Research, prototype and website</dd></div>
+          <div><dt>Stack</dt><dd>JavaScript, TfL API, GraphHopper API</dd></div>
+        </dl>
+        <div class="case-body">
+          <h3>ThisAbility (EquiVerse)</h3>
+          <p>A journey planner for people with disabilities, built around one question: what would make someone confident enough to travel independently? Our team started with interviews, surveys and a review of 7+ existing products, and used that to decide what to build first. I then took on the interactive prototype and the project website, combining live TfL data with GraphHopper routing.</p>
+          <p class="case-note">From user interviews to a working prototype, pitched to judges at Google London.</p>
+          <div class="case-links">
+            <a href="https://github.com/PooriyaKTB/T4PF---ThisAbility" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://t4pf-equiverse-thisability.netlify.app/" target="_blank" rel="noopener">Website</a>
+            <a href="https://t4pf-thisability-mvp.netlify.app/" target="_blank" rel="noopener">Live demo</a>
           </div>
         </div>
+      </article>
 
-        <div class="case spot-card glass" style="--card-accent:var(--pink); --card-glow:var(--pink-glow);">
-          <div class="case-tags"><span class="tag tag--pink">Engineering</span><span class="tag tag--muted">Solo Build</span></div>
+      <article class="case">
+        <dl class="case-facts">
+          <div><dt>Context</dt><dd>Cross-functional Agile team</dd></div>
+          <div><dt>Role</dt><dd>Full-stack engineer</dd></div>
+          <div><dt>Stack</dt><dd>React, Node.js, Express, PostgreSQL, WebSockets, Docker</dd></div>
+        </dl>
+        <div class="case-body">
+          <h3>Mentoro</h3>
+          <p>A live quiz platform for mentors and students. A mentor opens a session, students join, and questions, answers and scores move between them in real time over WebSockets. I worked on the REST API for auth, quizzes and scoring, the PostgreSQL schema behind it, and the React screens for both roles.</p>
+          <p class="case-note">Built the way production teams work: sprint planning, pull request reviews and pair programming with developers, tech leads and product managers.</p>
+          <div class="case-links">
+            <a href="https://github.com/samirahekmati/quiz-app" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://mentoro.grads.hosting.cyf.academy/" target="_blank" rel="noopener">Live demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <dl class="case-facts">
+          <div><dt>Context</dt><dd>Independent build</dd></div>
+          <div><dt>Role</dt><dd>Sole developer</dd></div>
+          <div><dt>Stack</dt><dd>Node.js, Express, Firebase, OpenAI API</dd></div>
+        </dl>
+        <div class="case-body">
           <h3>PiTranslate</h3>
-          <div class="case-grid">
-            <dl class="case-facts">
-              <div><dt>Context</dt><dd>Independent build</dd></div>
-              <div><dt>Role</dt><dd>Sole Developer</dd></div>
-              <div><dt>Stack</dt><dd>Node.js, Firebase, OpenAI API</dd></div>
-            </dl>
-            <div class="case-body">
-              <p>An AI-powered language-learning app for translations, idioms and personalised practice. The OpenAI API generates translations and examples, backed by spaced-repetition review, persistent login, and a low-friction guest mode for anyone who wants to try it without signing up.</p>
-              <p class="case-quote">Solo build, AI-integrated, accessible by default.</p>
-              <div class="case-links">
-                <a class="case-link" href="https://github.com/PooriyaKTB/PiTranslate" target="_blank" rel="noopener">GitHub →</a>
-                <a class="case-link" href="https://pitranslate.netlify.app/" target="_blank" rel="noopener">Live Demo →</a>
-              </div>
-            </div>
+          <p>A language-learning app that goes beyond translation. The OpenAI API generates example sentences, synonyms and idioms for each word, and saved words come back through spaced repetition so they actually stick. Anyone can try it as a guest; signing in keeps your progress.</p>
+          <p class="case-note">Lighthouse performance score of 95+ after tuning rendering and API calls.</p>
+          <div class="case-links">
+            <a href="https://github.com/PooriyaKTB/PiTranslate" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://pitranslate.netlify.app/" target="_blank" rel="noopener">Live demo</a>
           </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="background">
+    <div class="wrap">
+      <h2>What architecture taught me about software</h2>
+      <div class="lessons">
+        <div class="lesson">
+          <h3>Research before you build</h3>
+          <p>A building designed without talking to the people who will use it fails, and so does software. I start with interviews, existing products and constraints, and I don't open an editor until the scope is clear.</p>
+        </div>
+        <div class="lesson">
+          <h3>Every decision is a trade-off</h3>
+          <p>For seven years I balanced cost, performance, sustainability and deadlines, and brought projects in up to 15% under budget. Choosing between a quick fix and a clean design feels very familiar.</p>
+        </div>
+        <div class="lesson">
+          <h3>Delivery is a team sport</h3>
+          <p>I led multi-disciplinary teams and mentored junior team members. In software that turns into clear pull requests, useful code reviews and not leaving teammates guessing.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TRACK RECORD -->
-  <section id="record" class="section">
+  <section class="section" id="experience">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Track Record</span>
-        <h2>Where this came from</h2>
-      </div>
+      <h2>Experience</h2>
 
-      <div class="timeline reveal">
-        <div class="log-entry log-entry--violet">
-          <span class="log-date mono">2026 · 2 months</span>
-          <div class="log-title-row">
-            <span class="log-role">Business Analysis &amp; Tech Consultant</span>
-            <span class="tag tag--violet">Business Analysis</span>
-          </div>
-          <span class="log-org">Capgemini — Tech4Positive Futures Programme</span>
-          <ul class="log-list">
-            <li>Co-analysed accessibility barriers in a cross-functional team, co-designing the business model and Lean Canvas for ThisAbility.</li>
-            <li>Took ownership of architecting and building the showcase website and interactive MVP prototype.</li>
-            <li>Co-pitched the strategic product vision and functional MVP to senior judges at Google London.</li>
-          </ul>
-        </div>
-
-        <div class="log-entry log-entry--pink">
-          <span class="log-date mono">2024 – Present</span>
-          <div class="log-title-row">
-            <span class="log-role">Software Engineering Programme</span>
-            <span class="tag tag--pink">Engineering</span>
-          </div>
-          <span class="log-org">CodeYourFuture · Full-time</span>
-          <ul class="log-list">
-            <li>Built full-stack applications with JavaScript, Node.js and React using clean code and Git-based workflows.</li>
-            <li>Collaborated through regular code reviews, pair programming and iterative delivery.</li>
-            <li>Applied algorithmic thinking to find and fix performance bottlenecks in legacy codebases.</li>
-          </ul>
-        </div>
-
-        <div class="log-entry log-entry--blue">
-          <span class="log-date mono">2016 – 2023</span>
-          <div class="log-title-row">
-            <span class="log-role">Senior Architect</span>
-            <span class="tag tag--blue">Leadership</span>
-          </div>
-          <span class="log-org">SISI Engineers Group · Full-time</span>
-          <ul class="log-list">
-            <li>Led multi-disciplinary teams delivering large-scale commercial and residential projects end to end.</li>
-            <li>Coordinated digital and construction workflows across stakeholders and timelines using AutoCAD, Revit and PM systems.</li>
-            <li>Mentored junior team members and delivered projects up to 15% under budget through more efficient planning.</li>
-          </ul>
+      <div class="job">
+        <p class="job-date">Apr - Jun 2026</p>
+        <div>
+          <h3>Business Analysis and Tech Consultant</h3>
+          <p class="job-org">Capgemini, Tech4Positive Futures programme</p>
+          <p>Worked in a cross-functional team on ThisAbility: researching accessibility barriers, shaping the business model and Lean Canvas, and building the prototype and showcase site. We pitched the result to senior judges at Google London.</p>
         </div>
       </div>
 
-      <div class="credentials reveal">
-        <span class="cap-head-sm">Credentials</span>
-        <div class="cred-row">
-          <span class="cred-name">Software Developer Certificate</span>
-          <span class="cred-org">CodeYourFuture</span>
+      <div class="job">
+        <p class="job-date">2024 - Present</p>
+        <div>
+          <h3>Software Engineering Programme</h3>
+          <p class="job-org">CodeYourFuture, full-time</p>
+          <p>Full-time training in full-stack development with JavaScript, Node.js and React, working in teams with code reviews and pair programming. A lot of it was reading other people's code: refactoring legacy codebases and finding performance bottlenecks.</p>
         </div>
-        <div class="cred-row">
-          <span class="cred-name">BSc in Architecture</span>
-          <span class="cred-org">Azad University · 2:1</span>
+      </div>
+
+      <div class="job">
+        <p class="job-date">2016 - 2023</p>
+        <div>
+          <h3>Senior Architect</h3>
+          <p class="job-org">SISI Engineers Group, full-time</p>
+          <p>Led teams of architects and engineers on large commercial and residential projects, from the first concept to handover. Coordinated clients, consultants and contractors, mentored junior staff, and delivered projects up to 15% under budget.</p>
+        </div>
+      </div>
+
+      <div class="extras">
+        <div>
+          <h3 class="subhead">Toolkit</h3>
+          <dl class="toolkit">
+            <div><dt>Core</dt><dd>Java, JavaScript, Node.js, Express, React, PostgreSQL</dd></div>
+            <div><dt>Also</dt><dd>Kafka, WebSockets, JWT, MongoDB, Tailwind CSS, Python, SQL</dd></div>
+            <div><dt>Testing</dt><dd>JUnit, AssertJ, Jest, TDD</dd></div>
+            <div><dt>Tooling</dt><dd>Git, Docker, CI/CD, Postman, Claude Code</dd></div>
+            <div><dt>Learning</dt><dd>Neo4j</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3 class="subhead">Education</h3>
+          <dl class="toolkit">
+            <div><dt>CodeYourFuture</dt><dd>Software Developer Certificate</dd></div>
+            <div><dt>Azad University</dt><dd>BSc in Architecture, 17.40/20 (comparable to a UK 2:1 or above)</dd></div>
+          </dl>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section section--alt">
+  <section class="section" id="contact">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Contact</span>
-        <h2>Let's talk</h2>
-      </div>
-      <p class="contact-lede reveal">Whether you need a full-stack build, someone who can sit with stakeholders and come back with a real plan, or both — I'm open to full-stack roles and freelance work in the UK and remote.</p>
+      <h2>Let's talk</h2>
+      <p class="contact-lede">Open to full-stack and software engineering roles in the UK or remote, and to freelance work.</p>
 
-      <div class="contact-panel glass reveal">
-        <div class="contact-grid">
-          <div>
-            <dl class="corr-list">
-              <div class="corr-row"><dt>Email</dt><dd><a href="mailto:me@pooriya.dev">me@pooriya.dev</a></dd></div>
-              <div class="corr-row"><dt>Phone</dt><dd><a href="tel:+447770344782">+44 7770 344782</a></dd></div>
-              <div class="corr-row"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/pooriya-ketabi" target="_blank" rel="noopener">/pooriya-ketabi</a></dd></div>
-              <div class="corr-row"><dt>GitHub</dt><dd><a href="https://github.com/PooriyaKTB" target="_blank" rel="noopener">/PooriyaKTB</a></dd></div>
-            </dl>
-            <div class="contact-actions">
-              <span class="btn-primary-wrap"><a href="mailto:me@pooriya.dev" class="btn-primary">Email me</a></span>
-              <a class="btn" href="https://calendly.com/pooriya-ketabi/online-meeting" id="bookMeetingBtn" target="_blank" rel="noopener">Book a meeting</a>
-            </div>
+      <div class="contact-grid">
+        <div>
+          <a class="contact-email" href="mailto:me@pooriya.dev">me@pooriya.dev</a>
+          <dl class="contact-list">
+            <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/pooriya-ketabi" target="_blank" rel="noopener">pooriya-ketabi</a></dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/PooriyaKTB" target="_blank" rel="noopener">PooriyaKTB</a></dd></div>
+            <div><dt>Meeting</dt><dd><a href="https://calendly.com/pooriya-ketabi/online-meeting" id="bookMeetingBtn" target="_blank" rel="noopener">Book a call on Calendly</a></dd></div>
+          </dl>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/myzwyqlp" method="POST">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required placeholder="What are you working on?"></textarea>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-primary" id="cf-submit">Send message</button>
+            <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
           </div>
-
-          <form class="contact-form" id="contactForm" action="https://formspree.io/f/myzwyqlp" method="POST">
-            <div class="form-field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" required autocomplete="name">
-            </div>
-            <div class="form-field">
-              <label for="cf-email">Your email</label>
-              <input id="cf-email" name="email" type="email" required autocomplete="email">
-            </div>
-            <div class="form-field">
-              <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" required placeholder="What are you working on?"></textarea>
-            </div>
-            <div class="form-foot">
-              <span class="btn-primary-wrap"><button type="submit" class="btn-primary" id="cf-submit">Send message</button></span>
-              <span class="form-note" id="cf-status">Sent straight to my inbox</span>
-            </div>
-          </form>
-        </div>
-
-        <div class="contact-signoff">
-          <span class="mark"><img src="./icons/LOGO/logo1.png" alt=""></span>
-          <p>Full-Stack Software Engineer<br>Business Analyst &amp; Tech Consultant<br>Formerly Senior Architect</p>
-        </div>
+        </form>
       </div>
     </div>
   </section>
@@ -401,9 +246,12 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
-    <p>© 2026 Pooriya Ketabi</p>
-    <a href="#hero">← Back to top</a>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="icons/LOGO/logo1-small.png" alt="" width="32" height="32">
+      <p>&copy; 2026 Pooriya Ketabi</p>
+    </div>
+    <a href="#top">Back to top</a>
   </div>
 </footer>
 
