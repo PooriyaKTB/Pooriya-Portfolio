@@ -1,22 +1,13 @@
 {
-    "name": "Pooriya's Portfolio",
-    "short_name": "Pooriya",
-    "start_url": "/index.html",
-    "display": "standalone",
-    "background_color": "#111111",
-    "theme_color": "#0077cc",
-    "description": "Creative frontend developer portfolio — projects, resume, and contact.",
-    "icons": [
-      {
-        "src": "./icons/icon-192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "./icons/icon-512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ]
-  }
-  
+  "name": "Pooriya Ketabi, Full-Stack Software Engineer",
+  "short_name": "Pooriya",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0F1113",
+  "theme_color": "#0F1113",
+  "description": "Full-stack software engineer working in Java, JavaScript and PostgreSQL, with seven years as a senior architect before moving into software.",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
