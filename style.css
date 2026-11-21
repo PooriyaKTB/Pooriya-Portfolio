@@ -143,11 +143,38 @@ a:hover { color: var(--accent); }
 }
 .case-links a:hover { color: var(--ink); }
 
-/* Background */
-#background { background: var(--surface); }
-.lessons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.lesson h3 { font-size: 18px; margin-bottom: 10px; }
-.lesson p { color: var(--muted); font-size: 15.5px; }
+/* Stack */
+.stack div {
+  display: grid; grid-template-columns: 140px 1fr; gap: 24px;
+  padding: 14px 0; border-top: 1px solid var(--line);
+}
+.stack div:last-child { border-bottom: 1px solid var(--line); }
+.stack dt { font-size: 14px; color: var(--muted); padding-top: 2px; }
+.stack dd { font-size: 16.5px; }
+a.tech {
+  text-decoration: underline dotted rgba(236, 237, 238, .35);
+  text-decoration-thickness: 1px; text-underline-offset: 5px;
+}
+a.tech:hover { color: var(--accent); text-decoration-color: var(--accent); }
+a.tech.is-active { color: var(--accent); text-decoration: underline solid var(--accent); }
+
+/* Project filter */
+.filter-note {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 4px 12px;
+  margin: -28px 0 24px; padding: 10px 0; color: var(--muted); font-size: 15px;
+  position: sticky; top: 68px; z-index: 10;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.filter-note[hidden] { display: none; }
+.filter-note strong { color: var(--accent); font-weight: 600; }
+.filter-clear {
+  font: inherit; color: var(--ink); background: none; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 8px; min-height: 40px; padding: 0 14px;
+}
+.filter-clear:hover { border-color: var(--muted); }
+.case { transition: opacity .2s ease; scroll-margin-top: 150px; }
+.case.is-dim { opacity: .3; }
+.case.is-match .case-body h3 { color: var(--accent); }
 
 /* Experience */
 .job {
@@ -158,11 +185,9 @@ a:hover { color: var(--accent); }
 .job h3 { font-size: 19px; margin-bottom: 2px; }
 .job-org { color: var(--muted); font-size: 15px; margin-bottom: 10px; }
 .job p:last-child { max-width: 66ch; }
+.job-aside { color: var(--muted); margin-top: 10px; padding-left: 16px; border-left: 2px solid var(--line); }
 
-.extras {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-  margin-top: 24px; padding-top: 40px; border-top: 1px solid var(--line);
-}
+.extras { margin-top: 24px; padding-top: 40px; border-top: 1px solid var(--line); max-width: 720px; }
 .subhead { font-size: 18px; margin-bottom: 14px; }
 .toolkit div {
   display: grid; grid-template-columns: 130px 1fr; gap: 16px;
@@ -216,8 +241,6 @@ a:hover { color: var(--accent); }
 @media (max-width: 900px) {
   .case { grid-template-columns: 1fr; gap: 20px; }
   .case-facts { order: 2; flex-direction: row; flex-wrap: wrap; gap: 14px 32px; padding-top: 0; }
-  .lessons { grid-template-columns: 1fr; gap: 28px; }
-  .extras { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
@@ -251,5 +274,8 @@ a:hover { color: var(--accent); }
   .job { grid-template-columns: 1fr; gap: 4px; }
   .job-date { padding-top: 0; }
   .toolkit div { grid-template-columns: 1fr; gap: 2px; }
+  .stack div { grid-template-columns: 1fr; gap: 2px; }
+  .filter-note { margin-top: -16px; top: 60px; }
+  .case { scroll-margin-top: 136px; }
   .contact-form { padding: 20px; }
 }

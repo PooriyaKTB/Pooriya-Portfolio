@@ -23,6 +23,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Stack: clicking a linked technology highlights the projects that use a technology and scroll to the first one.
+  // Without JS each one is a plain anchor link to its first project.
+  const techLinks = document.querySelectorAll(".tech[data-projects]");
+  const cases = document.querySelectorAll(".case");
+  const filterNote = document.getElementById("filterNote");
+  const filterName = document.getElementById("filterName");
+  const filterClear = document.getElementById("filterClear");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const clearFilter = () => {
+    techLinks.forEach((c) => c.classList.remove("is-active"));
+    cases.forEach((c) => c.classList.remove("is-dim", "is-match"));
+    if (filterNote) filterNote.hidden = true;
+  };
+
+  techLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const ids = link.dataset.projects.split(" ");
+      clearFilter();
+      link.classList.add("is-active");
+      cases.forEach((c) => c.classList.add(ids.includes(c.id) ? "is-match" : "is-dim"));
+      if (filterNote) {
+        filterName.textContent = link.textContent;
+        filterNote.hidden = false;
+      }
+      const first = document.getElementById(ids[0]);
+      if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  if (filterClear) {
+    filterClear.addEventListener("click", () => {
+      clearFilter();
+      document.getElementById("work").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+
   // Open Calendly as a popup when its script has loaded; otherwise the link works normally.
   const bookBtn = document.getElementById("bookMeetingBtn");
   if (bookBtn) {

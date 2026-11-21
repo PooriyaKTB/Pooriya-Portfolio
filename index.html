@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pooriya Ketabi | Full-Stack Software Engineer</title>
-<meta name="description" content="Pooriya Ketabi, full-stack software engineer. Seven years designing buildings as a senior architect, now building software with Java, Node.js, React and PostgreSQL.">
+<meta name="description" content="Pooriya Ketabi, full-stack software engineer. Seven years designing buildings as a senior architect, now building software with JavaScript, React, Java and PostgreSQL.">
 <link rel="canonical" href="https://pooriya.dev/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0F1113">
@@ -13,11 +13,11 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pooriya.dev/">
 <meta property="og:title" content="Pooriya Ketabi | Full-Stack Software Engineer">
-<meta property="og:description" content="Seven years designing buildings. Now building software with Java, Node.js, React and PostgreSQL.">
+<meta property="og:description" content="Seven years designing buildings. Now building software with JavaScript, React, Java and PostgreSQL.">
 <meta property="og:image" content="https://pooriya.dev/assets/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pooriya Ketabi | Full-Stack Software Engineer">
-<meta name="twitter:description" content="Seven years designing buildings. Now building software with Java, Node.js, React and PostgreSQL.">
+<meta name="twitter:description" content="Seven years designing buildings. Now building software with JavaScript, React, Java and PostgreSQL.">
 <meta name="twitter:image" content="https://pooriya.dev/assets/preview.png">
 
 <link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
@@ -42,8 +42,8 @@
     </a>
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
     <nav class="site-nav" id="siteNav" aria-label="Main">
+      <a href="#stack">Stack</a>
       <a href="#work">Work</a>
-      <a href="#background">Background</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
       <a href="assets/Pooriya-Ketabi-CV.pdf" class="nav-cv" download>CV</a>
@@ -57,7 +57,7 @@
     <div class="wrap">
       <p class="label">Pooriya Ketabi, Full-Stack Software Engineer</p>
       <h1>I spent seven years designing buildings. Now I build software.</h1>
-      <p class="hero-lede">I work across the stack with Java, Node.js, React and PostgreSQL. The habits from architecture came with me: understand the problem before drawing anything, make trade-offs out loud, and get a team to the finish line.</p>
+      <p class="hero-lede">I work across the stack with JavaScript, React, Java and PostgreSQL. The habits from architecture came with me: understand the problem before drawing anything, make trade-offs out loud, and get a team to the finish line.</p>
       <div class="hero-actions">
         <a href="#work" class="btn btn-primary">See my work</a>
         <a href="assets/Pooriya-Ketabi-CV.pdf" class="btn btn-ghost" download>Download CV</a>
@@ -65,19 +65,35 @@
     </div>
   </section>
 
+  <section class="section" id="stack">
+    <div class="wrap">
+      <h2>Stack</h2>
+      <dl class="stack">
+        <div><dt>Languages</dt><dd><a class="tech" href="#scheduler" data-projects="scheduler">Java</a>, <a class="tech" href="#thisability" data-projects="thisability mentoro pitranslate">JavaScript</a>, <a class="tech" href="#mentoro" data-projects="mentoro">SQL</a>, <span class="tech">Python</span></dd></div>
+        <div><dt>Frontend</dt><dd><a class="tech" href="#mentoro" data-projects="mentoro">React</a>, <a class="tech" href="#mentoro" data-projects="mentoro">Tailwind CSS</a>, <a class="tech" href="#thisability" data-projects="thisability pitranslate">HTML &amp; CSS</a></dd></div>
+        <div><dt>Backend</dt><dd><a class="tech" href="#mentoro" data-projects="mentoro pitranslate">Node.js</a>, <a class="tech" href="#mentoro" data-projects="mentoro pitranslate">Express</a>, <a class="tech" href="#mentoro" data-projects="mentoro pitranslate">REST APIs</a>, <a class="tech" href="#mentoro" data-projects="mentoro">WebSockets</a>, <a class="tech" href="#mentoro" data-projects="mentoro">JWT</a>, <a class="tech" href="#scheduler" data-projects="scheduler">Apache Kafka</a>, <a class="tech" href="#scheduler" data-projects="scheduler">Quartz</a></dd></div>
+        <div><dt>Databases</dt><dd><a class="tech" href="#mentoro" data-projects="mentoro">PostgreSQL</a>, <span class="tech">MongoDB</span>, <span class="tech">Neo4j (learning)</span></dd></div>
+        <div><dt>Integrations</dt><dd><a class="tech" href="#pitranslate" data-projects="pitranslate">OpenAI API</a>, <a class="tech" href="#pitranslate" data-projects="pitranslate">Firebase Auth</a>, <a class="tech" href="#thisability" data-projects="thisability">TfL API</a>, <a class="tech" href="#thisability" data-projects="thisability">GraphHopper</a>, <a class="tech" href="#thisability" data-projects="thisability">Leaflet</a></dd></div>
+        <div><dt>Testing</dt><dd><a class="tech" href="#scheduler" data-projects="scheduler">JUnit</a>, <a class="tech" href="#scheduler" data-projects="scheduler">AssertJ</a>, <span class="tech">Jest</span>, <span class="tech">TDD</span></dd></div>
+        <div><dt>Tools</dt><dd><span class="tech">Git</span>, <a class="tech" href="#scheduler" data-projects="scheduler mentoro">Docker</a>, <span class="tech">CI/CD</span>, <span class="tech">Postman</span>, <span class="tech">Claude Code</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
   <section class="section" id="work">
     <div class="wrap">
       <h2>Selected work</h2>
+      <p class="filter-note" id="filterNote" hidden>Projects using <strong id="filterName"></strong> <button type="button" class="filter-clear" id="filterClear">Show all</button></p>
 
-      <article class="case">
+      <article class="case" id="scheduler">
         <dl class="case-facts">
           <div><dt>Context</dt><dd>Personal project, in progress</dd></div>
           <div><dt>Role</dt><dd>Sole developer</dd></div>
-          <div><dt>Stack</dt><dd>Java, Apache Kafka, Quartz, Docker, JUnit</dd></div>
+          <div><dt>Stack</dt><dd>Java, Apache Kafka, Quartz, Docker, JUnit, AssertJ</dd></div>
         </dl>
         <div class="case-body">
           <h3>Event-Driven Job Scheduler</h3>
-          <p>A cron scheduler where deciding <em>when</em> a job runs and actually <em>running</em> it are two separate parts of the system. Quartz reads the cron expression and fires at the right moment, but instead of doing the work itself, the scheduler publishes an event to Kafka. Independent consumers pick those events up and execute the jobs.</p>
+          <p>A cron scheduler where deciding when a job runs and actually running it are two separate parts of the system. Quartz reads the cron expression and fires at the right moment, but instead of doing the work itself, the scheduler publishes an event to Kafka. Independent consumers pick those events up and execute the jobs.</p>
           <p class="case-note">Splitting scheduling from execution means each side can scale and fail on its own. I'm now working on retries and failure handling when a consumer drops a job halfway through.</p>
           <div class="case-links">
             <a href="https://github.com/PooriyaKTB/Event-driven-Architecture-Kafka" target="_blank" rel="noopener">GitHub</a>
@@ -85,15 +101,15 @@
         </div>
       </article>
 
-      <article class="case">
+      <article class="case" id="thisability">
         <dl class="case-facts">
           <div><dt>Context</dt><dd>Capgemini Tech4Positive Futures</dd></div>
           <div><dt>Role</dt><dd>Research, prototype and website</dd></div>
-          <div><dt>Stack</dt><dd>JavaScript, TfL API, GraphHopper API</dd></div>
+          <div><dt>Stack</dt><dd>JavaScript, Leaflet, TfL API, GraphHopper API</dd></div>
         </dl>
         <div class="case-body">
           <h3>ThisAbility (EquiVerse)</h3>
-          <p>A journey planner for people with disabilities, built around one question: what would make someone confident enough to travel independently? Our team started with interviews, surveys and a review of 7+ existing products, and used that to decide what to build first. I then took on the interactive prototype and the project website, combining live TfL data with GraphHopper routing.</p>
+          <p>A journey planner for people with disabilities, built around one question: what would make someone confident enough to travel independently? Our team started with interviews, surveys and a review of 7+ existing products, and used that to decide what to build first. I then built the interactive prototype and the project website. Routes come from the TfL Journey Planner, with GraphHopper and OSRM as fallbacks, so the app still finds a way when one service is down.</p>
           <p class="case-note">From user interviews to a working prototype, pitched to judges at Google London.</p>
           <div class="case-links">
             <a href="https://github.com/PooriyaKTB/T4PF---ThisAbility" target="_blank" rel="noopener">GitHub</a>
@@ -103,11 +119,11 @@
         </div>
       </article>
 
-      <article class="case">
+      <article class="case" id="mentoro">
         <dl class="case-facts">
           <div><dt>Context</dt><dd>Cross-functional Agile team</dd></div>
           <div><dt>Role</dt><dd>Full-stack engineer</dd></div>
-          <div><dt>Stack</dt><dd>React, Node.js, Express, PostgreSQL, WebSockets, Docker</dd></div>
+          <div><dt>Stack</dt><dd>React, Node.js, Express, PostgreSQL, WebSockets, JWT, Docker</dd></div>
         </dl>
         <div class="case-body">
           <h3>Mentoro</h3>
@@ -120,15 +136,15 @@
         </div>
       </article>
 
-      <article class="case">
+      <article class="case" id="pitranslate">
         <dl class="case-facts">
           <div><dt>Context</dt><dd>Independent build</dd></div>
           <div><dt>Role</dt><dd>Sole developer</dd></div>
-          <div><dt>Stack</dt><dd>Node.js, Express, Firebase, OpenAI API</dd></div>
+          <div><dt>Stack</dt><dd>JavaScript, Node.js, Express, Firebase Auth, OpenAI API</dd></div>
         </dl>
         <div class="case-body">
           <h3>PiTranslate</h3>
-          <p>A language-learning app that goes beyond translation. The OpenAI API generates example sentences, synonyms and idioms for each word, and saved words come back through spaced repetition so they actually stick. Anyone can try it as a guest; signing in keeps your progress.</p>
+          <p>A translator built for learning, not just translating. Every result comes with a pronunciation guide, example sentences, synonyms and a matching idiom, and misspelled input gets a "did you mean" fix. Saved words come back on a spaced-repetition schedule: get one right and the gap before the next review doubles, miss it and it returns tomorrow. The Express backend keeps the OpenAI key off the client and handles rate limiting and input validation.</p>
           <p class="case-note">Lighthouse performance score of 95+ after tuning rendering and API calls.</p>
           <div class="case-links">
             <a href="https://github.com/PooriyaKTB/PiTranslate" target="_blank" rel="noopener">GitHub</a>
@@ -136,26 +152,6 @@
           </div>
         </div>
       </article>
-    </div>
-  </section>
-
-  <section class="section" id="background">
-    <div class="wrap">
-      <h2>What architecture taught me about software</h2>
-      <div class="lessons">
-        <div class="lesson">
-          <h3>Research before you build</h3>
-          <p>A building designed without talking to the people who will use it fails, and so does software. I start with interviews, existing products and constraints, and I don't open an editor until the scope is clear.</p>
-        </div>
-        <div class="lesson">
-          <h3>Every decision is a trade-off</h3>
-          <p>For seven years I balanced cost, performance, sustainability and deadlines, and brought projects in up to 15% under budget. Choosing between a quick fix and a clean design feels very familiar.</p>
-        </div>
-        <div class="lesson">
-          <h3>Delivery is a team sport</h3>
-          <p>I led multi-disciplinary teams and mentored junior team members. In software that turns into clear pull requests, useful code reviews and not leaving teammates guessing.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -187,20 +183,11 @@
           <h3>Senior Architect</h3>
           <p class="job-org">SISI Engineers Group, full-time</p>
           <p>Led teams of architects and engineers on large commercial and residential projects, from the first concept to handover. Coordinated clients, consultants and contractors, mentored junior staff, and delivered projects up to 15% under budget.</p>
+          <p class="job-aside">Architecture is coordination work: move one wall and it touches the structure, the services, the cost and the schedule. I bring that habit to code, checking what depends on something before I change it.</p>
         </div>
       </div>
 
       <div class="extras">
-        <div>
-          <h3 class="subhead">Toolkit</h3>
-          <dl class="toolkit">
-            <div><dt>Core</dt><dd>Java, JavaScript, Node.js, Express, React, PostgreSQL</dd></div>
-            <div><dt>Also</dt><dd>Kafka, WebSockets, JWT, MongoDB, Tailwind CSS, Python, SQL</dd></div>
-            <div><dt>Testing</dt><dd>JUnit, AssertJ, Jest, TDD</dd></div>
-            <div><dt>Tooling</dt><dd>Git, Docker, CI/CD, Postman, Claude Code</dd></div>
-            <div><dt>Learning</dt><dd>Neo4j</dd></div>
-          </dl>
-        </div>
         <div>
           <h3 class="subhead">Education</h3>
           <dl class="toolkit">
